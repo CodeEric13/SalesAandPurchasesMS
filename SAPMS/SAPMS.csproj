@@ -114,6 +114,7 @@
     <Compile Include="addClientFRM.Designer.cs">
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\ClientRecords.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +130,12 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sales\spDashboardFRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\spDashboardFRM.Designer.cs">
+      <DependentUpon>spDashboardFRM.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addClientFRM.resx">
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,8 +155,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Sales\spDashboardFRM.resx">
+      <DependentUpon>spDashboardFRM.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SAPMS.Classes.ClientRecords.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,9 +172,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes\" />
     <Folder Include="Purchase\" />
-    <Folder Include="Sales\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

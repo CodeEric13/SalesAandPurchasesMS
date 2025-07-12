@@ -35,7 +35,7 @@
             // 
             // loginbtn
             // 
-            this.loginbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.loginbtn.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("loginbtn.ImageOptions.SvgImage")));
             this.loginbtn.Location = new System.Drawing.Point(16, 31);
             this.loginbtn.Name = "loginbtn";
             this.loginbtn.Size = new System.Drawing.Size(199, 115);
@@ -58,7 +58,9 @@
             this.ClientSize = new System.Drawing.Size(231, 164);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.loginbtn);
+            this.MaximizeBox = false;
             this.Name = "login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -31,30 +31,115 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.clientsGrdCtrl = new DevExpress.XtraGrid.GridControl();
+            this.clientRecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBusinessAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBusinessCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBusinessName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTaxtType = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDateAdded = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.addClient = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.fluentDesignFormContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsGrdCtrl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
             // 
-            this.fluentDesignFormContainer1.Controls.Add(this.gridControl1);
+            this.fluentDesignFormContainer1.Controls.Add(this.clientsGrdCtrl);
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fluentDesignFormContainer1.Location = new System.Drawing.Point(210, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(580, 442);
             this.fluentDesignFormContainer1.TabIndex = 0;
+            // 
+            // clientsGrdCtrl
+            // 
+            this.clientsGrdCtrl.DataSource = this.clientRecordsBindingSource;
+            this.clientsGrdCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clientsGrdCtrl.Location = new System.Drawing.Point(0, 0);
+            this.clientsGrdCtrl.MainView = this.gridView1;
+            this.clientsGrdCtrl.MenuManager = this.fluentFormDefaultManager1;
+            this.clientsGrdCtrl.Name = "clientsGrdCtrl";
+            this.clientsGrdCtrl.Size = new System.Drawing.Size(580, 442);
+            this.clientsGrdCtrl.TabIndex = 0;
+            this.clientsGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // clientRecordsBindingSource
+            // 
+            this.clientRecordsBindingSource.DataSource = typeof(SAPMS.Classes.ClientRecords);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colName,
+            this.colBusinessAddress,
+            this.colBusinessCode,
+            this.colBusinessName,
+            this.colTaxtType,
+            this.colDateAdded});
+            this.gridView1.GridControl = this.clientsGrdCtrl;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
+            // 
+            // colName
+            // 
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 0;
+            // 
+            // colBusinessAddress
+            // 
+            this.colBusinessAddress.FieldName = "BusinessAddress";
+            this.colBusinessAddress.Name = "colBusinessAddress";
+            this.colBusinessAddress.Visible = true;
+            this.colBusinessAddress.VisibleIndex = 1;
+            // 
+            // colBusinessCode
+            // 
+            this.colBusinessCode.FieldName = "BusinessCode";
+            this.colBusinessCode.Name = "colBusinessCode";
+            this.colBusinessCode.Visible = true;
+            this.colBusinessCode.VisibleIndex = 2;
+            // 
+            // colBusinessName
+            // 
+            this.colBusinessName.FieldName = "BusinessName";
+            this.colBusinessName.Name = "colBusinessName";
+            this.colBusinessName.Visible = true;
+            this.colBusinessName.VisibleIndex = 3;
+            // 
+            // colTaxtType
+            // 
+            this.colTaxtType.FieldName = "TaxtType";
+            this.colTaxtType.Name = "colTaxtType";
+            this.colTaxtType.Visible = true;
+            this.colTaxtType.VisibleIndex = 4;
+            // 
+            // colDateAdded
+            // 
+            this.colDateAdded.FieldName = "DateAdded";
+            this.colDateAdded.Name = "colDateAdded";
+            this.colDateAdded.Visible = true;
+            this.colDateAdded.VisibleIndex = 5;
+            // 
+            // fluentFormDefaultManager1
+            // 
+            this.fluentFormDefaultManager1.Form = this;
             // 
             // accordionControl1
             // 
@@ -91,31 +176,10 @@
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
             // 
-            // fluentFormDefaultManager1
-            // 
-            this.fluentFormDefaultManager1.Form = this;
-            // 
             // mvvmContext1
             // 
             this.mvvmContext1.ContainerControl = this;
             this.mvvmContext1.ViewModelType = typeof(SAPMS.MainViewModel);
-            // 
-            // gridControl1
-            // 
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(0, 0);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.MenuManager = this.fluentFormDefaultManager1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(580, 442);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
             // 
             // dashboard
             // 
@@ -129,14 +193,18 @@
             this.FluentDesignFormControl = this.fluentDesignFormControl1;
             this.Name = "dashboard";
             this.NavigationControl = this.accordionControl1;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.dashboard_Load);
             this.fluentDesignFormContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.clientsGrdCtrl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -148,8 +216,15 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement addClient;
         private DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager fluentFormDefaultManager1;
         private DevExpress.Utils.MVVM.MVVMContext mvvmContext1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl clientsGrdCtrl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource clientRecordsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colBusinessAddress;
+        private DevExpress.XtraGrid.Columns.GridColumn colBusinessCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colBusinessName;
+        private DevExpress.XtraGrid.Columns.GridColumn colTaxtType;
+        private DevExpress.XtraGrid.Columns.GridColumn colDateAdded;
     }
 }
 
