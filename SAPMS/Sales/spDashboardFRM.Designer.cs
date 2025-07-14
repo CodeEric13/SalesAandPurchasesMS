@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(spDashboardFRM));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.viewPurchase = new DevExpress.XtraBars.BarButtonItem();
             this.viewSales = new DevExpress.XtraBars.BarButtonItem();
             this.newSales = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.newPurchse = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -53,10 +53,10 @@
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
             this.ribbon.SearchEditItem,
-            this.barButtonItem1,
+            this.viewPurchase,
             this.viewSales,
             this.newSales,
-            this.barButtonItem4});
+            this.newPurchse});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 10;
             this.ribbon.Name = "ribbon";
@@ -65,13 +65,15 @@
             this.ribbonPage2});
             this.ribbon.Size = new System.Drawing.Size(810, 158);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
             // 
-            // barButtonItem1
+            // viewPurchase
             // 
-            this.barButtonItem1.Caption = "View Purchases";
-            this.barButtonItem1.Id = 1;
-            this.barButtonItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem1.ImageOptions.SvgImage")));
-            this.barButtonItem1.Name = "barButtonItem1";
+            this.viewPurchase.Caption = "View Purchases";
+            this.viewPurchase.Id = 1;
+            this.viewPurchase.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("viewPurchase.ImageOptions.SvgImage")));
+            this.viewPurchase.Name = "viewPurchase";
+            this.viewPurchase.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.viewPurchase_ItemClick);
             // 
             // viewSales
             // 
@@ -89,12 +91,13 @@
             this.newSales.Name = "newSales";
             this.newSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.newSales_ItemClick);
             // 
-            // barButtonItem4
+            // newPurchse
             // 
-            this.barButtonItem4.Caption = "Add New";
-            this.barButtonItem4.Id = 9;
-            this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
-            this.barButtonItem4.Name = "barButtonItem4";
+            this.newPurchse.Caption = "Add New";
+            this.newPurchse.Id = 9;
+            this.newPurchse.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("newPurchse.ImageOptions.SvgImage")));
+            this.newPurchse.Name = "newPurchse";
+            this.newPurchse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.newPurchse_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -118,8 +121,8 @@
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem4);
+            this.ribbonPageGroup2.ItemLinks.Add(this.viewPurchase);
+            this.ribbonPageGroup2.ItemLinks.Add(this.newPurchse);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonStatusBar
@@ -167,10 +170,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem viewPurchase;
         private DevExpress.XtraBars.BarButtonItem viewSales;
         private DevExpress.XtraBars.BarButtonItem newSales;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.BarButtonItem newPurchse;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
     }

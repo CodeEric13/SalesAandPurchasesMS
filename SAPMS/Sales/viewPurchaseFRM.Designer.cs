@@ -1,6 +1,6 @@
-﻿namespace SAPMS
+﻿namespace SAPMS.Sales
 {
-    partial class viewSalesFRM
+    partial class viewPurchaseFRM
     {
         /// <summary>
         /// Required designer variable.
@@ -28,37 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.viewSalesGrdCtrl = new DevExpress.XtraGrid.GridControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // viewSalesGrdCtrl
+            // gridControl1
             // 
-            this.viewSalesGrdCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewSalesGrdCtrl.Location = new System.Drawing.Point(0, 0);
-            this.viewSalesGrdCtrl.MainView = this.gridView1;
-            this.viewSalesGrdCtrl.Name = "viewSalesGrdCtrl";
-            this.viewSalesGrdCtrl.Size = new System.Drawing.Size(546, 268);
-            this.viewSalesGrdCtrl.TabIndex = 0;
-            this.viewSalesGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.Location = new System.Drawing.Point(0, 0);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(506, 268);
+            this.gridControl1.TabIndex = 0;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // gridView1
             // 
-            this.gridView1.GridControl = this.viewSalesGrdCtrl;
+            this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
-            // viewSalesFRM
+            // viewPurchaseFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 268);
-            this.Controls.Add(this.viewSalesGrdCtrl);
-            this.Name = "viewSalesFRM";
-            this.Text = "viewSalesFRM";
-            ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).EndInit();
+            this.ClientSize = new System.Drawing.Size(506, 268);
+            this.Controls.Add(this.gridControl1);
+            this.Name = "viewPurchaseFRM";
+            this.Text = "viewPurchaseFRM";
+            this.Load += new System.EventHandler(this.viewPurchaseFRM_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -66,7 +67,7 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl viewSalesGrdCtrl;
+        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

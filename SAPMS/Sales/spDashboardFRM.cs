@@ -56,6 +56,19 @@ namespace SAPMS.Sales
             OpenFormAsTab(new viewSalesFRM());
         }
 
+        private void viewPurchase_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenFormAsTab(new viewPurchaseFRM());
+        }
 
+        private void newPurchse_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenFormAsTab(new newPurchaseFRM());
+        }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
