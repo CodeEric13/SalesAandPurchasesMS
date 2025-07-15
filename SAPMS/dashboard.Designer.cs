@@ -45,6 +45,7 @@
             this.addClient = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
+            this.clientRecordsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsGrdCtrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).BeginInit();
@@ -53,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
@@ -66,7 +68,7 @@
             // 
             // clientsGrdCtrl
             // 
-            this.clientsGrdCtrl.DataSource = this.clientRecordsBindingSource;
+            this.clientsGrdCtrl.DataSource = this.clientRecordsBindingSource1;
             this.clientsGrdCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientsGrdCtrl.Location = new System.Drawing.Point(0, 0);
             this.clientsGrdCtrl.MainView = this.gridView1;
@@ -76,10 +78,6 @@
             this.clientsGrdCtrl.TabIndex = 0;
             this.clientsGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            // 
-            // clientRecordsBindingSource
-            // 
-            this.clientRecordsBindingSource.DataSource = typeof(SAPMS.Classes.ClientRecords);
             // 
             // gridView1
             // 
@@ -179,7 +177,10 @@
             // mvvmContext1
             // 
             this.mvvmContext1.ContainerControl = this;
-            this.mvvmContext1.ViewModelType = typeof(SAPMS.MainViewModel);
+            // 
+            // clientRecordsBindingSource1
+            // 
+            this.clientRecordsBindingSource1.DataSource = typeof(SAPMS.Classes.ClientRecords);
             // 
             // dashboard
             // 
@@ -205,6 +206,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +227,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colBusinessName;
         private DevExpress.XtraGrid.Columns.GridColumn colTaxtType;
         private DevExpress.XtraGrid.Columns.GridColumn colDateAdded;
+        private System.Windows.Forms.BindingSource clientRecordsBindingSource1;
     }
 }
 

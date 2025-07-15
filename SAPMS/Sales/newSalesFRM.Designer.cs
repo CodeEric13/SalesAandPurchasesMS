@@ -44,6 +44,8 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.savebtn = new DevExpress.XtraEditors.SimpleButton();
             this.clearbtn = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.clientCode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outSales.Properties)).BeginInit();
@@ -52,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cusName
@@ -71,6 +74,7 @@
             this.vatSales.Properties.Appearance.Options.UseFont = true;
             this.vatSales.Size = new System.Drawing.Size(133, 26);
             this.vatSales.TabIndex = 2;
+            this.vatSales.TextChanged += new System.EventHandler(this.vatSales_TextChanged);
             // 
             // outSales
             // 
@@ -80,6 +84,7 @@
             this.outSales.Properties.Appearance.Options.UseFont = true;
             this.outSales.Size = new System.Drawing.Size(133, 26);
             this.outSales.TabIndex = 3;
+            this.outSales.TextChanged += new System.EventHandler(this.outSales_TextChanged);
             // 
             // grossSales
             // 
@@ -141,6 +146,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.transacDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.transacDate.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.transacDate.Size = new System.Drawing.Size(133, 26);
             this.transacDate.TabIndex = 10;
             // 
@@ -158,6 +164,7 @@
             this.x12VatSales.Name = "x12VatSales";
             this.x12VatSales.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.x12VatSales.Properties.Appearance.Options.UseFont = true;
+            this.x12VatSales.Properties.ReadOnly = true;
             this.x12VatSales.Size = new System.Drawing.Size(133, 26);
             this.x12VatSales.TabIndex = 12;
             // 
@@ -167,6 +174,7 @@
             this.x12OutVat.Name = "x12OutVat";
             this.x12OutVat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.x12OutVat.Properties.Appearance.Options.UseFont = true;
+            this.x12OutVat.Properties.ReadOnly = true;
             this.x12OutVat.Size = new System.Drawing.Size(133, 26);
             this.x12OutVat.TabIndex = 13;
             // 
@@ -185,6 +193,7 @@
             this.savebtn.Size = new System.Drawing.Size(69, 23);
             this.savebtn.TabIndex = 15;
             this.savebtn.Text = "Save";
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // clearbtn
             // 
@@ -194,11 +203,31 @@
             this.clearbtn.TabIndex = 16;
             this.clearbtn.Text = "Clear";
             // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(313, 17);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(55, 13);
+            this.labelControl8.TabIndex = 18;
+            this.labelControl8.Text = "Client Code";
+            // 
+            // clientCode
+            // 
+            this.clientCode.Location = new System.Drawing.Point(374, 9);
+            this.clientCode.Name = "clientCode";
+            this.clientCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clientCode.Properties.Appearance.Options.UseFont = true;
+            this.clientCode.Properties.ReadOnly = true;
+            this.clientCode.Size = new System.Drawing.Size(72, 26);
+            this.clientCode.TabIndex = 17;
+            // 
             // newSalesFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 174);
+            this.Controls.Add(this.labelControl8);
+            this.Controls.Add(this.clientCode);
             this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.savebtn);
             this.Controls.Add(this.labelControl7);
@@ -218,6 +247,7 @@
             this.MaximizeBox = false;
             this.Name = "newSalesFRM";
             this.Text = "newSalesFRM";
+            this.Load += new System.EventHandler(this.newSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.outSales.Properties)).EndInit();
@@ -226,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +279,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.SimpleButton savebtn;
         private DevExpress.XtraEditors.SimpleButton clearbtn;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.TextEdit clientCode;
     }
 }

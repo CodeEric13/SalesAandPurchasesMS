@@ -9,6 +9,7 @@ namespace SAPMS.Classes
 {
     public class ClientRecords
     {
+      //  public string ClientCode { get; set; }
         public string Name { get; set; }
         public string BusinessAddress { get; set; }
         public string BusinessCode { get; set; }

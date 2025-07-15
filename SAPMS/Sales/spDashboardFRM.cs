@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using SAPMS.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace SAPMS.Sales
 {
     public partial class spDashboardFRM : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        //private ClientRecords _clients;
         public spDashboardFRM()
         {
             InitializeComponent();

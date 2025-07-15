@@ -68,17 +68,19 @@ namespace SAPMS
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            // proceed to another form 
-            if (e.Clicks.Equals(2))
+            if (e.Clicks == 2 && e.RowHandle >= 0) // double-click and valid row
             {
-                var selectedClient = gridView1.GetRow(e.RowHandle) as ClientRecords;
-                if (selectedClient != null)
-                {
-                    // Open the client details form and pass the selected client data
-                    spDashboardFRM detailsForm = new spDashboardFRM();
-                    detailsForm.ShowDialog();
-                }
+                object codeValue = gridView1.GetRowCellValue(e.RowHandle, "code");
+
+                string businessCode = (codeValue != null && !Convert.IsDBNull(codeValue))
+                    ? codeValue.ToString()
+                    : string.Empty;
+
+                // Pass the business code to the form
+                newSalesFRM form = new newSalesFRM(businessCode);
+                form.ShowDialog();
             }
         }
     }
 }
+        
