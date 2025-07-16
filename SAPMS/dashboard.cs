@@ -16,6 +16,7 @@ namespace SAPMS
 {
     public partial class dashboard : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
+        //private ClientRecords _clients;
         public dashboard()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace SAPMS
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM clientInformation";
+                string query = "SELECT clientName, busAddress, code, busName, taxType, dateAdded FROM clientInformation";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -68,18 +69,41 @@ namespace SAPMS
 
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            if (e.Clicks == 2 && e.RowHandle >= 0) // double-click and valid row
+
+            if (e.Clicks == 2 && e.RowHandle >= 0)
             {
-                object codeValue = gridView1.GetRowCellValue(e.RowHandle, "code");
+                var client = new ClientRecords()
+                {
+                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code").ToString(),
+                };
+                var sales = new spDashboardFRM(client);
+                sales.ShowDialog();
 
-                string businessCode = (codeValue != null && !Convert.IsDBNull(codeValue))
-                    ? codeValue.ToString()
-                    : string.Empty;
 
-                // Pass the business code to the form
-                newSalesFRM form = new newSalesFRM(businessCode);
-                form.ShowDialog();
+                //if (e.Clicks == 2 && e.RowHandle >= 0)
+                //{
+                //    object codeObj = gridView1.GetRowCellValue(e.RowHandle, "code");
+                //    string code = (codeObj != null && !Convert.IsDBNull(codeObj)) ? codeObj.ToString() : string.Empty;
+
+                //    var client = new ClientRecords()
+                //    {
+                //        BusinessCode = code
+                //    };
+
+                //    var sales = new newSalesFRM(client);
+                //    sales.ShowDialog();
+                //}
             }
+        }
+
+        private void fluentDesignFormControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fluentDesignFormControl1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

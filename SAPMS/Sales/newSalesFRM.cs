@@ -1,5 +1,6 @@
 ﻿using DevExpress.XtraEditors;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using SAPMS.Classes;
 using System;
 using System.Collections.Generic;
@@ -15,16 +16,15 @@ namespace SAPMS.Sales
 {
     public partial class newSalesFRM : DevExpress.XtraEditors.XtraForm
     {
-        private ClientRecords _clients;
-        private string _businessCode;
-        public newSalesFRM(string businessCode)
+       // private ClientRecords _clients;
+      
+        public newSalesFRM() ///string businessCode
         {
             InitializeComponent();
-            _businessCode = businessCode;
         }
         public newSalesFRM(ClientRecords clients)
         {
-            _clients = clients;
+            //_clients = clients;
             InitializeComponent();
         }
 
@@ -98,7 +98,7 @@ namespace SAPMS.Sales
 
         private void newSalesFRM_Load(object sender, EventArgs e)
         {
-            clientCode.Text = _businessCode;
+           
         }
 
         private void vatSales_TextChanged(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using MySqlX.XDevAPI;
 using SAPMS.Classes;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,16 @@ namespace SAPMS.Sales
 {
     public partial class spDashboardFRM : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        //private ClientRecords _clients;
-        public spDashboardFRM()
+        private ClientRecords _clients;
+        public spDashboardFRM(ClientRecords client)
         {
+            _clients = client;
             InitializeComponent();
         }
 
         private void spDashboardFRM_Load(object sender, EventArgs e)
         {
-
+            clientCode.Text = _clients.BusinessCode;
         }
 
         private void OpenFormAsTab(Form form)
