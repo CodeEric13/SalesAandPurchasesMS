@@ -14,7 +14,7 @@ namespace SAPMS.Classes
         public string BusinessAddress { get; set; }
         public string BusinessCode { get; set; }
         public string BusinessName { get; set; }
-        public string TaxtType { get; set; }
+        public string TaxType { get; set; }
         public DateTime DateAdded { get; set; }
     }
 }

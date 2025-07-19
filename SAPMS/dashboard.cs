@@ -11,6 +11,7 @@ using System.Text;
 using System.Windows.Forms;
 using SAPMS.Classes;
 using SAPMS.Sales;
+using DevExpress.XtraEditors;
 
 namespace SAPMS
 {
@@ -38,36 +39,80 @@ namespace SAPMS
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-            List<ClientRecords> clientList = new List<ClientRecords>();
 
-            string connectionString = "server=localhost;uid=root;pwd=;database=sapmsDB";
-
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            try
             {
-                conn.Open();
+                string myConnectionString = "server=localhost;uid=root;pwd=;database=sapmsDb";
                 string query = "SELECT clientName, busAddress, code, busName, taxType, dateAdded FROM clientInformation";
 
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (MySqlConnection connection = new MySqlConnection(myConnectionString))
                 {
-                    while (reader.Read())
+                    connection.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
                     {
-                        clientList.Add(new ClientRecords
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
-                            Name = reader["clientName"].ToString(),
-                            BusinessAddress = reader["busAddress"].ToString(),
-                            BusinessCode = reader["code"].ToString(),
-                            BusinessName = reader["busName"].ToString(),
-                            TaxtType = reader["taxType"].ToString(),
-                            DateAdded = Convert.ToDateTime(reader["dateAdded"])
-                        });
+                            DataTable dataTable = new DataTable();
+                            adapter.Fill(dataTable);
+
+                            if (dataTable.Rows.Count > 0)
+                            {
+                                clientsGrdCtrl.DataSource = dataTable;
+                                //clientsGrdCtrl.ForceInitialize();
+                                gridView1.PopulateColumns();
+                                gridView1.BestFitColumns();
+
+                                // Auto adjust column widths to fit content
+                                gridView1.BestFitColumns();
+                            }
+                            else
+                            {
+                                XtraMessageBox.Show("No data found in the table.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
                     }
                 }
             }
-            clientsGrdCtrl.DataSource = clientList;
+            catch (MySqlException ex)
+            {
+                XtraMessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+
+
+
+            //List<ClientRecords> clientList = new List<ClientRecords>();
+
+            //string connectionString = "server=localhost;uid=root;pwd=;database=sapmsDB";
+
+            //using (MySqlConnection conn = new MySqlConnection(connectionString))
+            //{
+            //    conn.Open();
+            //    string query = "SELECT clientName, busAddress, code, busName, taxType, dateAdded FROM clientInformation";
+
+            //    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            //    using (MySqlDataReader reader = cmd.ExecuteReader())
+            //    {
+            //        while (reader.Read())
+            //        {
+            //            clientList.Add(new ClientRecords
+            //            {
+            //                Name = reader["clientName"].ToString(),
+            //                BusinessAddress = reader["busAddress"].ToString(),
+            //                BusinessCode = reader["code"].ToString(),
+            //                BusinessName = reader["busName"].ToString(),
+            //                TaxType = reader["taxType"] == DBNull.Value ? "" : reader["taxType"].ToString(),
+            //                DateAdded = Convert.ToDateTime(reader["dateAdded"])
+            //            });
+            //        }
+            //    }
+            //}
+            //clientsGrdCtrl.DataSource = clientList;
+
+
+            private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
 
             if (e.Clicks == 2 && e.RowHandle >= 0)

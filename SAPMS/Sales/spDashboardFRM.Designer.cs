@@ -144,7 +144,9 @@
             // 
             // clientCode
             // 
-            this.clientCode.Location = new System.Drawing.Point(142, 64);
+            this.clientCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.clientCode.Enabled = false;
+            this.clientCode.Location = new System.Drawing.Point(354, 26);
             this.clientCode.MenuManager = this.ribbon;
             this.clientCode.Name = "clientCode";
             this.clientCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,6 +167,7 @@
             this.IsMdiContainer = true;
             this.Name = "spDashboardFRM";
             this.Ribbon = this.ribbon;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "spDashboardFRM";
             this.Load += new System.EventHandler(this.spDashboardFRM_Load);
