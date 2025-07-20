@@ -25,8 +25,9 @@ namespace SAPMS.Sales
         private void spDashboardFRM_Load(object sender, EventArgs e)
         {
             clientCode.Text = _clients.BusinessCode;
+            clientCode.Text = /* value from selected record */
+            ClientSession.SelectedClientCode = clientCode.Text; // Save it for use in child forms
         }
-
         private void OpenFormAsTab(Form form)
         {
             // Check if the form is already open in a tab

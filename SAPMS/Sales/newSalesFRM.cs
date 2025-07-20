@@ -14,6 +14,8 @@ using System.Windows.Forms;
 
 namespace SAPMS.Sales
 {
+   
+
     public partial class newSalesFRM : DevExpress.XtraEditors.XtraForm
     {
        // private ClientRecords _clients;
@@ -98,7 +100,10 @@ namespace SAPMS.Sales
 
         private void newSalesFRM_Load(object sender, EventArgs e)
         {
-           
+            if (!string.IsNullOrEmpty(ClientSession.SelectedClientCode))
+            {
+                clientCode.Text = ClientSession.SelectedClientCode;
+            }
         }
 
         private void vatSales_TextChanged(object sender, EventArgs e)

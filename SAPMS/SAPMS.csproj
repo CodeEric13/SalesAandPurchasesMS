@@ -115,6 +115,7 @@
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\ClientRecords.cs" />
+    <Compile Include="Classes\ClientSession.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
