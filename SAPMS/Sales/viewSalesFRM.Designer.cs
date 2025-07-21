@@ -58,6 +58,7 @@
             this.Controls.Add(this.viewSalesGrdCtrl);
             this.Name = "viewSalesFRM";
             this.Text = "viewSalesFRM";
+            this.Load += new System.EventHandler(this.viewSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);

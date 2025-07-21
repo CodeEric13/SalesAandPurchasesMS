@@ -65,12 +65,14 @@ namespace SAPMS.Sales
                     string insertQuery = @"
                 INSERT INTO sales (dateOfTransac,
                                    customerName,
+                                   code,
                                    VatSales,
                                    outputSales,
                                    grossSales)
 
                            VALUES (@dateOfTransac,
                                    @customerName,
+                                   @code,
                                    @vatSales,
                                    @outputSales,
                                    @grossSales)";
@@ -79,6 +81,7 @@ namespace SAPMS.Sales
                     {
                         cmd.Parameters.AddWithValue("@dateOfTransac", Convert.ToDateTime(transacDate.Text));
                         cmd.Parameters.AddWithValue("@customerName", cusName.Text.Trim().ToUpper());
+                        cmd.Parameters.AddWithValue("@code", clientCode.Text.Trim().ToUpper());
                         cmd.Parameters.AddWithValue("@VatSales", Convert.ToDecimal(x12VatSales.Text));
                         cmd.Parameters.AddWithValue("@outputSales", Convert.ToDecimal(x12OutVat.Text));
                         cmd.Parameters.AddWithValue("@grossSales", Convert.ToDecimal(grossSales.Text));

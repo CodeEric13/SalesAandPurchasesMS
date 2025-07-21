@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Classes\ClientRecords.cs" />
     <Compile Include="Classes\ClientSession.cs" />
+    <Compile Include="Classes\SalesRercord.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
