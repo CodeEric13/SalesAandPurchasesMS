@@ -39,18 +39,20 @@ namespace SAPMS
 
         private void dashboard_Load(object sender, EventArgs e)
         {
+            string storedProcedure = "GetClientRecord";
 
             try
             {
                 string myConnectionString = "server=localhost;uid=root;pwd=;database=sapmsDb";
-                string query = "SELECT clientName, busAddress, code, busName, taxType, dateAdded FROM clientInformation";
 
                 using (MySqlConnection connection = new MySqlConnection(myConnectionString))
                 {
                     connection.Open();
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    using (MySqlCommand cmd = new MySqlCommand(storedProcedure, connection))
                     {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             DataTable dataTable = new DataTable();

@@ -24,54 +24,39 @@ namespace SAPMS
 
         private async void viewSalesFRM_Load(object sender, EventArgs e)
         {
-            string query = @"SELECT 
-                                id,
-                                code,
-                                dateOfTransac,
-                                customerName,
-                                VatSales,
-                                outputSales,
-                                grossSales
-                            FROM sales";
+            string storedProcedure = "GetSalesRecord";
             try
             {
                 List<SalesRercord> dailyTreatmentList = new List<SalesRercord>();
 
-                using (MySqlConnection connection = new MySqlConnection("server =localhost;uid=root;pwd=;database=sapmsDB"))
+                using (MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=;database=sapmsDB"))
                 {
                     await connection.OpenAsync();
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
+                    using (MySqlCommand command = new MySqlCommand(storedProcedure, connection))
                     {
-                        while (await reader.ReadAsync())
+                        command.CommandType = CommandType.StoredProcedure;  // ✅ Required!
+
+                        using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
                         {
-                            SalesRercord treatment = new SalesRercord
+                            while (await reader.ReadAsync())
                             {
-                                //SalesID = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : 0,
-                                BusinessCode = reader["code"]?.ToString() ?? string.Empty,
-                                CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
-                                VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
-                                OutputSales = reader["outputSales"]?.ToString() ?? string.Empty,
-                                DateOfTransact = reader["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(reader["dateOfTransac"]) : DateTime.MinValue,
-                                GrossSales = reader["grossSales"]?.ToString() ?? string.Empty,
-                            };
-                            dailyTreatmentList.Add(treatment);
+                                SalesRercord treatment = new SalesRercord
+                                {
+                                    BusinessCode = reader["code"]?.ToString() ?? string.Empty,
+                                    CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
+                                    VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
+                                    OutputSales = reader["outputSales"]?.ToString() ?? string.Empty,
+                                    DateOfTransact = reader["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(reader["dateOfTransac"]) : DateTime.MinValue,
+                                    GrossSales = reader["grossSales"]?.ToString() ?? string.Empty,
+                                };
+                                dailyTreatmentList.Add(treatment);
+                            }
                         }
                     }
                 }
 
-                // Bind the data to the GridControl
                 viewSalesGrdCtrl.DataSource = dailyTreatmentList;
-
-            //    // Format the Date of Consultation column
-            //    GridView gridView = dailyTreatmentRprtGridCntrl.MainView as GridView;
-
-            //    if (gridView != null)
-            //    {
-            //        gridView.Columns["DateofConsultation"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            //        gridView.Columns["DateofConsultation"].DisplayFormat.FormatString = "yyyy-MM-dd"; // Date-only format
-            //    }
             }
             catch (Exception ex)
             {
