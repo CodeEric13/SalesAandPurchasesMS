@@ -49,6 +49,7 @@
             // 
             this.gridView1.GridControl = this.viewSalesGrdCtrl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.Editable = false;
             // 
             // viewSalesFRM
             // 
