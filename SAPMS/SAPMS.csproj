@@ -108,10 +108,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addClientFRM.cs">
+    <Compile Include="Dashboard\addClientFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addClientFRM.Designer.cs">
+    <Compile Include="Dashboard\addClientFRM.Designer.cs">
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\ClientRecords.cs" />
@@ -123,19 +123,19 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="dashboard.cs">
+    <Compile Include="Dashboard\dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dashboard.Designer.cs">
+    <Compile Include="Dashboard\dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="MainViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sales\newPurchaseFRM.cs">
+    <Compile Include="Purchase\newPurchaseFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\newPurchaseFRM.Designer.cs">
+    <Compile Include="Purchase\newPurchaseFRM.Designer.cs">
       <DependentUpon>newPurchaseFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\newSalesFRM.cs">
@@ -144,16 +144,16 @@
     <Compile Include="Sales\newSalesFRM.Designer.cs">
       <DependentUpon>newSalesFRM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\spDashboardFRM.cs">
+    <Compile Include="Dashboard\spDashboardFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\spDashboardFRM.Designer.cs">
+    <Compile Include="Dashboard\spDashboardFRM.Designer.cs">
       <DependentUpon>spDashboardFRM.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sales\viewPurchaseFRM.cs">
+    <Compile Include="Purchase\viewPurchaseFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sales\viewPurchaseFRM.Designer.cs">
+    <Compile Include="Purchase\viewPurchaseFRM.Designer.cs">
       <DependentUpon>viewPurchaseFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\viewSalesFRM.cs">
@@ -162,13 +162,13 @@
     <Compile Include="Sales\viewSalesFRM.Designer.cs">
       <DependentUpon>viewSalesFRM.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addClientFRM.resx">
+    <EmbeddedResource Include="Dashboard\addClientFRM.resx">
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="dashboard.resx">
+    <EmbeddedResource Include="Dashboard\dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -181,16 +181,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Sales\newPurchaseFRM.resx">
+    <EmbeddedResource Include="Purchase\newPurchaseFRM.resx">
       <DependentUpon>newPurchaseFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\newSalesFRM.resx">
       <DependentUpon>newSalesFRM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\spDashboardFRM.resx">
+    <EmbeddedResource Include="Dashboard\spDashboardFRM.resx">
       <DependentUpon>spDashboardFRM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\viewPurchaseFRM.resx">
+    <EmbeddedResource Include="Purchase\viewPurchaseFRM.resx">
       <DependentUpon>viewPurchaseFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\viewSalesFRM.resx">
@@ -210,9 +210,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Purchase\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -189,6 +189,7 @@
             this.Controls.Add(this.clientName);
             this.Name = "addClientFRM";
             this.Text = "addClientFRM";
+            this.Load += new System.EventHandler(this.addClientFRM_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.clientName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.busName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.taxTypecmb.Properties)).EndInit();

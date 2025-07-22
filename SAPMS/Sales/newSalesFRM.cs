@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.DXErrorProvider;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
 using SAPMS.Classes;
@@ -18,11 +19,12 @@ namespace SAPMS.Sales
 
     public partial class newSalesFRM : DevExpress.XtraEditors.XtraForm
     {
-       // private ClientRecords _clients;
-      
+        // private ClientRecords _clients;
+        private DXErrorProvider dxErrorProvider;
         public newSalesFRM() ///string businessCode
         {
             InitializeComponent();
+            dxErrorProvider = new DXErrorProvider();
         }
         public newSalesFRM(ClientRecords clients)
         {
@@ -55,36 +57,68 @@ namespace SAPMS.Sales
 
         private void savebtn_Click(object sender, EventArgs e)
         {
+            dxErrorProvider.ClearErrors();
+            bool hasError = false;
+
+            if (string.IsNullOrWhiteSpace(transacDate.Text))
+            {
+                dxErrorProvider.SetError(transacDate, "Transaction date is required.");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(cusName.Text))
+            {
+                dxErrorProvider.SetError(cusName, "Customer name is required.");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(clientCode.Text))
+            {
+                dxErrorProvider.SetError(clientCode, "Client code is required.");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(x12VatSales.Text))
+            {
+                dxErrorProvider.SetError(x12VatSales, "VAT Sales is required.");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(x12OutVat.Text))
+            {
+                dxErrorProvider.SetError(x12OutVat, "Output VAT is required.");
+                hasError = true;
+            }
+
+            if (string.IsNullOrWhiteSpace(grossSales.Text))
+            {
+                dxErrorProvider.SetError(grossSales, "Gross Sales is required.");
+                hasError = true;
+            }
+
+            if (hasError)
+            {
+                return; // Don't proceed with saving if there's a validation error
+            }
+
             string connectionString = "server=localhost;uid=root;pwd=;database=sapmsdb";
+            string storedProcedure = "InsertSalesRecord";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string insertQuery = @"
-                INSERT INTO sales (dateOfTransac,
-                                   customerName,
-                                   code,
-                                   VatSales,
-                                   outputSales,
-                                   grossSales)
 
-                           VALUES (@dateOfTransac,
-                                   @customerName,
-                                   @code,
-                                   @vatSales,
-                                   @outputSales,
-                                   @grossSales)";
-
-                    using (MySqlCommand cmd = new MySqlCommand(insertQuery, conn))
+                    using (MySqlCommand cmd = new MySqlCommand(storedProcedure, conn))
                     {
-                        cmd.Parameters.AddWithValue("@dateOfTransac", Convert.ToDateTime(transacDate.Text));
-                        cmd.Parameters.AddWithValue("@customerName", cusName.Text.Trim().ToUpper());
-                        cmd.Parameters.AddWithValue("@code", clientCode.Text.Trim().ToUpper());
-                        cmd.Parameters.AddWithValue("@VatSales", Convert.ToDecimal(x12VatSales.Text));
-                        cmd.Parameters.AddWithValue("@outputSales", Convert.ToDecimal(x12OutVat.Text));
-                        cmd.Parameters.AddWithValue("@grossSales", Convert.ToDecimal(grossSales.Text));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@p_dateOfTransac", Convert.ToDateTime(transacDate.Text));
+                        cmd.Parameters.AddWithValue("@p_customerName", cusName.Text.Trim().ToUpper());
+                        cmd.Parameters.AddWithValue("@p_code", clientCode.Text.Trim().ToUpper());
+                        cmd.Parameters.AddWithValue("@p_VatSales", Convert.ToDecimal(x12VatSales.Text));
+                        cmd.Parameters.AddWithValue("@p_outputSales", Convert.ToDecimal(x12OutVat.Text));
+                        cmd.Parameters.AddWithValue("@p_grossSales", Convert.ToDecimal(grossSales.Text));
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Sales record saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
