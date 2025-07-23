@@ -137,7 +137,7 @@
             // 
             // transacDate
             // 
-            this.transacDate.EditValue = null;
+            this.transacDate.EditValue = new System.DateTime(2025, 7, 23, 9, 26, 22, 0);
             this.transacDate.Location = new System.Drawing.Point(143, 137);
             this.transacDate.Name = "transacDate";
             this.transacDate.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +246,7 @@
             this.Controls.Add(this.cusName);
             this.MaximizeBox = false;
             this.Name = "newSalesFRM";
-            this.Text = "newSalesFRM";
+            this.Text = "New Sales";
             this.Load += new System.EventHandler(this.newSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).EndInit();

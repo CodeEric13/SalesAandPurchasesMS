@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.clientsGrdCtrl = new DevExpress.XtraGrid.GridControl();
+            this.clientRecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBusinessAddress = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,15 +45,14 @@
             this.addClient = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.clientRecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientsGrdCtrl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fluentDesignFormContainer1
@@ -76,6 +76,10 @@
             this.clientsGrdCtrl.TabIndex = 0;
             this.clientsGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // clientRecordsBindingSource
+            // 
+            this.clientRecordsBindingSource.DataSource = typeof(SAPMS.Classes.ClientRecords);
             // 
             // gridView1
             // 
@@ -177,10 +181,6 @@
             // 
             this.mvvmContext1.ContainerControl = this;
             // 
-            // clientRecordsBindingSource
-            // 
-            this.clientRecordsBindingSource.DataSource = typeof(SAPMS.Classes.ClientRecords);
-            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,17 +194,17 @@
             this.Name = "dashboard";
             this.NavigationControl = this.accordionControl1;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainView";
+            this.Text = "Main Form";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.dashboard_Load);
             this.fluentDesignFormContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientsGrdCtrl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mvvmContext1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

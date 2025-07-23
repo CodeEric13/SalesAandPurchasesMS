@@ -26,7 +26,7 @@ namespace SAPMS
         private void loginbtn_Click(object sender, EventArgs e)
         {
                 // Open the main form
-                dashboard mainForm = new dashboard ();
+                Dashboard mainForm = new Dashboard ();
                 mainForm.Show();
                 this.Hide(); // Hide the login form
         }

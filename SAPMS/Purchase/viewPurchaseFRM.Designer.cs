@@ -72,7 +72,7 @@
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.purchaseGrdCtrl);
             this.Name = "viewPurchaseFRM";
-            this.Text = "viewPurchaseFRM";
+            this.Text = "Purchases";
             this.Load += new System.EventHandler(this.viewPurchaseFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseGrdCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

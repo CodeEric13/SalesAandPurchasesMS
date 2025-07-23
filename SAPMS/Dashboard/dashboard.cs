@@ -121,7 +121,7 @@ namespace SAPMS
             {
                 var client = new ClientRecords()
                 {
-                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code").ToString(),
+                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code").ToString()
                 };
                 var sales = new spDashboardFRM(client);
                 sales.ShowDialog();
