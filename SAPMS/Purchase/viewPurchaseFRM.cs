@@ -1,6 +1,7 @@
 ﻿using DevExpress.XtraEditors;
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
+using SAPMS.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,20 @@ namespace SAPMS.Sales
 {
     public partial class viewPurchaseFRM : DevExpress.XtraEditors.XtraForm
     {
+        public string ClientCodeText
+        {
+            get => clientCode.Text;
+            set => clientCode.Text = value;
+        }
+
         public viewPurchaseFRM()
         {
             InitializeComponent();
+        }
+        public viewPurchaseFRM(string clientCodeText)
+        {
+            InitializeComponent();
+            clientCode.Text = clientCodeText;
         }
 
         private void LoadPurchaseData()
@@ -29,9 +41,12 @@ namespace SAPMS.Sales
                 try
                 {
                     conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand("GetPurchaseRecord", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("GetPurchaseRecordsByClientCode", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
+
+                        // Pass clientCode from the TextBox to the stored procedure
+                        cmd.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
