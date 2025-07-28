@@ -69,8 +69,10 @@
             // 
             // clientCode
             // 
+            this.clientCode.Enabled = false;
             this.clientCode.Location = new System.Drawing.Point(73, 11);
             this.clientCode.Name = "clientCode";
+            this.clientCode.Properties.ReadOnly = true;
             this.clientCode.Size = new System.Drawing.Size(98, 20);
             this.clientCode.TabIndex = 2;
             // 

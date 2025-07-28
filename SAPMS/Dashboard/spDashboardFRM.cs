@@ -58,7 +58,9 @@ namespace SAPMS.Sales
 
         private void viewSales_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenFormAsTab(new viewSalesFRM());
+            var viewForm = new viewSalesFRM();
+            viewForm.ClientCodeText = clientCode.Text;
+            OpenFormAsTab(viewForm);
         }
 
         private void viewPurchase_ItemClick(object sender, ItemClickEventArgs e)

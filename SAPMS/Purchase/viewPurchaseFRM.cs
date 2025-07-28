@@ -47,7 +47,7 @@ namespace SAPMS.Sales
 
                         // Pass clientCode from the TextBox to the stored procedure
                         cmd.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
-
+ 
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         adapter.Fill(dt);

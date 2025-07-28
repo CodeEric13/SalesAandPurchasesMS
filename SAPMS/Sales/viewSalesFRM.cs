@@ -17,14 +17,26 @@ namespace SAPMS
 {
     public partial class viewSalesFRM : DevExpress.XtraEditors.XtraForm
     {
+        public string ClientCodeText
+        {
+            get => clientCode.Text;
+            set => clientCode.Text = value;
+        }
         public viewSalesFRM()
         {
             InitializeComponent();
         }
 
+        public viewSalesFRM(string clientCodeText)
+        {
+            InitializeComponent();
+            clientCode.Text = clientCodeText;
+        }
+
         private async void viewSalesFRM_Load(object sender, EventArgs e)
         {
-            string storedProcedure = "GetSalesRecord";
+             string storedProcedure = "GetSalesRecordsByClientCode";
+
             try
             {
                 List<SalesRercord> dailyTreatmentList = new List<SalesRercord>();
@@ -35,7 +47,10 @@ namespace SAPMS
 
                     using (MySqlCommand command = new MySqlCommand(storedProcedure, connection))
                     {
-                        command.CommandType = CommandType.StoredProcedure;  // ✅ Required!
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        // 👇 Pass the value of the clientCode textbox
+                        command.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
 
                         using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
                         {
@@ -62,6 +77,11 @@ namespace SAPMS
             {
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void refreshbtn_Click(object sender, EventArgs e)
+        {
+            viewSalesGrdCtrl.Refresh();
         }
     }
 }

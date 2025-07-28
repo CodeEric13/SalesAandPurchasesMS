@@ -30,17 +30,23 @@
         {
             this.viewSalesGrdCtrl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.refreshbtn = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // viewSalesGrdCtrl
             // 
-            this.viewSalesGrdCtrl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewSalesGrdCtrl.Location = new System.Drawing.Point(0, 0);
+            this.viewSalesGrdCtrl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewSalesGrdCtrl.Location = new System.Drawing.Point(0, 32);
             this.viewSalesGrdCtrl.MainView = this.gridView1;
             this.viewSalesGrdCtrl.Name = "viewSalesGrdCtrl";
-            this.viewSalesGrdCtrl.Size = new System.Drawing.Size(546, 268);
+            this.viewSalesGrdCtrl.Size = new System.Drawing.Size(546, 236);
             this.viewSalesGrdCtrl.TabIndex = 0;
             this.viewSalesGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -51,18 +57,50 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(10, 11);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "Client Code";
+            // 
+            // clientCode
+            // 
+            this.clientCode.Enabled = false;
+            this.clientCode.Location = new System.Drawing.Point(71, 6);
+            this.clientCode.Name = "clientCode";
+            this.clientCode.Properties.ReadOnly = true;
+            this.clientCode.Size = new System.Drawing.Size(98, 20);
+            this.clientCode.TabIndex = 5;
+            // 
+            // refreshbtn
+            // 
+            this.refreshbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshbtn.Location = new System.Drawing.Point(470, 9);
+            this.refreshbtn.Name = "refreshbtn";
+            this.refreshbtn.Size = new System.Drawing.Size(64, 18);
+            this.refreshbtn.TabIndex = 4;
+            this.refreshbtn.Text = "Refresh";
+            this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
+            // 
             // viewSalesFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 268);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.clientCode);
+            this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.viewSalesGrdCtrl);
             this.Name = "viewSalesFRM";
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.viewSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -70,5 +108,8 @@
 
         private DevExpress.XtraGrid.GridControl viewSalesGrdCtrl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.SimpleButton refreshbtn;
     }
 }
