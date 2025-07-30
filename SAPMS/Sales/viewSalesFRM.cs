@@ -33,9 +33,14 @@ namespace SAPMS
             clientCode.Text = clientCodeText;
         }
 
-        private async void viewSalesFRM_Load(object sender, EventArgs e)
+        private void viewSalesFRM_Load(object sender, EventArgs e)
         {
-             string storedProcedure = "GetSalesRecordsByClientCode";
+            LoadSalesData();
+        }
+
+        private async void LoadSalesData()
+        {
+            string storedProcedure = "GetSalesRecordsByClientCode";
 
             try
             {
@@ -78,10 +83,30 @@ namespace SAPMS
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void refreshbtn_Click(object sender, EventArgs e)
         {
-            viewSalesGrdCtrl.Refresh();
+            LoadSalesData();
+        }
+
+        private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
+        {
+            if (e.Clicks.Equals(2))
+            {
+                var sales = new SalesRercord()
+                {
+                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code")?.ToString() ?? "",
+                    CustomerName = gridView1.GetRowCellValue(e.RowHandle, "customerName")?.ToString() ?? "",
+                    GrossSales = gridView1.GetRowCellValue(e.RowHandle, "grossSales")?.ToString() ?? "",
+                    VatSales = gridView1.GetRowCellValue(e.RowHandle, "VatSales")?.ToString() ?? "",
+                    OutputSales = gridView1.GetRowCellValue(e.RowHandle, "outputSales")?.ToString() ?? "",
+                    DateOfTransact = DateTime.TryParse(gridView1.GetRowCellValue(e.RowHandle, "dateOfTransac")?.ToString(), out DateTime result)
+                        ? result
+                        : DateTime.MinValue
+                };
+
+                var updtSales = new updtSalesFRM(sales);
+                updtSales.ShowDialog();
+            }
         }
     }
 }

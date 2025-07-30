@@ -162,6 +162,12 @@
     <Compile Include="Sales\viewSalesFRM.Designer.cs">
       <DependentUpon>viewSalesFRM.cs</DependentUpon>
     </Compile>
+    <Compile Include="updtSalesFRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updtSalesFRM.Designer.cs">
+      <DependentUpon>updtSalesFRM.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Dashboard\addClientFRM.resx">
       <DependentUpon>addClientFRM.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,10 +202,14 @@
     <EmbeddedResource Include="Sales\viewSalesFRM.resx">
       <DependentUpon>viewSalesFRM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="updtSalesFRM.resx">
+      <DependentUpon>updtSalesFRM.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SAPMS.Classes.ClientRecords.datasource" />
     <None Include="Properties\DataSources\SAPMS.Classes.ClientRecords1.datasource" />
+    <None Include="Properties\DataSources\SAPMS.Classes.SalesRercord.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
