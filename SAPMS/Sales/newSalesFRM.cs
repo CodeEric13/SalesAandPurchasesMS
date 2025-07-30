@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace SAPMS.Sales
 {
-   
+
 
     public partial class newSalesFRM : DevExpress.XtraEditors.XtraForm
     {
@@ -44,7 +44,7 @@ namespace SAPMS.Sales
                 x12VatSales.Text = "0.00";
             }
 
-            if (decimal.TryParse(outSales.Text, out decimal outSalesValue))
+            if (decimal.TryParse(outVat.Text, out decimal outSalesValue))
             {
                 decimal outVatResult = outSalesValue * 0.12m;
                 x12OutVat.Text = outVatResult.ToString("0.00");
@@ -78,15 +78,15 @@ namespace SAPMS.Sales
                 hasError = true;
             }
 
-            if (string.IsNullOrWhiteSpace(x12VatSales.Text))
+            if (string.IsNullOrWhiteSpace(vatSales.Text))
             {
-                dxErrorProvider.SetError(x12VatSales, "VAT Sales is required.");
+                dxErrorProvider.SetError(vatSales, "VAT Sales is required.");
                 hasError = true;
             }
 
-            if (string.IsNullOrWhiteSpace(x12OutVat.Text))
+            if (string.IsNullOrWhiteSpace(outVat.Text))
             {
-                dxErrorProvider.SetError(x12OutVat, "Output VAT is required.");
+                dxErrorProvider.SetError(outVat, "Output VAT is required.");
                 hasError = true;
             }
 
@@ -143,12 +143,12 @@ namespace SAPMS.Sales
             }
         }
 
-        private void vatSales_TextChanged(object sender, EventArgs e)
+        private void x12VatSales_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
         }
 
-        private void outSales_TextChanged(object sender, EventArgs e)
+        private void x12OutVat_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
         }

@@ -30,7 +30,7 @@
         {
             this.cusName = new DevExpress.XtraEditors.TextEdit();
             this.vatSales = new DevExpress.XtraEditors.TextEdit();
-            this.outSales = new DevExpress.XtraEditors.TextEdit();
+            this.outVat = new DevExpress.XtraEditors.TextEdit();
             this.grossSales = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -48,7 +48,7 @@
             this.clientCode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.outSales.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outVat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties)).BeginInit();
@@ -74,17 +74,15 @@
             this.vatSales.Properties.Appearance.Options.UseFont = true;
             this.vatSales.Size = new System.Drawing.Size(133, 26);
             this.vatSales.TabIndex = 2;
-            this.vatSales.TextChanged += new System.EventHandler(this.vatSales_TextChanged);
             // 
-            // outSales
+            // outVat
             // 
-            this.outSales.Location = new System.Drawing.Point(143, 105);
-            this.outSales.Name = "outSales";
-            this.outSales.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outSales.Properties.Appearance.Options.UseFont = true;
-            this.outSales.Size = new System.Drawing.Size(133, 26);
-            this.outSales.TabIndex = 3;
-            this.outSales.TextChanged += new System.EventHandler(this.outSales_TextChanged);
+            this.outVat.Location = new System.Drawing.Point(143, 105);
+            this.outVat.Name = "outVat";
+            this.outVat.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outVat.Properties.Appearance.Options.UseFont = true;
+            this.outVat.Size = new System.Drawing.Size(133, 26);
+            this.outVat.TabIndex = 3;
             // 
             // grossSales
             // 
@@ -167,6 +165,7 @@
             this.x12VatSales.Properties.ReadOnly = true;
             this.x12VatSales.Size = new System.Drawing.Size(133, 26);
             this.x12VatSales.TabIndex = 12;
+            this.x12VatSales.TextChanged += new System.EventHandler(this.x12VatSales_TextChanged);
             // 
             // x12OutVat
             // 
@@ -177,6 +176,7 @@
             this.x12OutVat.Properties.ReadOnly = true;
             this.x12OutVat.Size = new System.Drawing.Size(133, 26);
             this.x12OutVat.TabIndex = 13;
+            this.x12OutVat.TextChanged += new System.EventHandler(this.x12OutVat_TextChanged);
             // 
             // labelControl7
             // 
@@ -241,7 +241,7 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.grossSales);
-            this.Controls.Add(this.outSales);
+            this.Controls.Add(this.outVat);
             this.Controls.Add(this.vatSales);
             this.Controls.Add(this.cusName);
             this.MaximizeBox = false;
@@ -250,7 +250,7 @@
             this.Load += new System.EventHandler(this.newSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.outSales.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.outVat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grossSales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties)).EndInit();
@@ -265,7 +265,7 @@
         #endregion
         private DevExpress.XtraEditors.TextEdit cusName;
         private DevExpress.XtraEditors.TextEdit vatSales;
-        private DevExpress.XtraEditors.TextEdit outSales;
+        private DevExpress.XtraEditors.TextEdit outVat;
         private DevExpress.XtraEditors.TextEdit grossSales;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;

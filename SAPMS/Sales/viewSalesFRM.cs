@@ -33,62 +33,92 @@ namespace SAPMS
             clientCode.Text = clientCodeText;
         }
 
-        private void viewSalesFRM_Load(object sender, EventArgs e)
-        {
-            LoadSalesData();
-        }
-
-        private async void LoadSalesData()
+        private async void viewSalesFRM_Load(object sender, EventArgs e)
         {
             string storedProcedure = "GetSalesRecordsByClientCode";
 
             try
             {
-                List<SalesRercord> dailyTreatmentList = new List<SalesRercord>();
-
-                using (MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=;database=sapmsDB"))
+                using (MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=;database=sapmsdb"))
                 {
                     await connection.OpenAsync();
 
                     using (MySqlCommand command = new MySqlCommand(storedProcedure, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-
-                        // 👇 Pass the value of the clientCode textbox
                         command.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
 
-                        using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
-                            while (await reader.ReadAsync())
-                            {
-                                SalesRercord treatment = new SalesRercord
-                                {
-                                    BusinessCode = reader["code"]?.ToString() ?? string.Empty,
-                                    CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
-                                    VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
-                                    OutputSales = reader["outputSales"]?.ToString() ?? string.Empty,
-                                    DateOfTransact = reader["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(reader["dateOfTransac"]) : DateTime.MinValue,
-                                    GrossSales = reader["grossSales"]?.ToString() ?? string.Empty,
-                                };
-                                dailyTreatmentList.Add(treatment);
-                            }
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            viewSalesGrdCtrl.DataSource = dt;
+
+                            // Optional: refresh view
+                            viewSalesGrdCtrl.Refresh();
                         }
                     }
                 }
-
-                viewSalesGrdCtrl.DataSource = dailyTreatmentList;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //LoadSalesData();
+        }
+
+        private async void LoadSalesData()
+        {
+            //string storedProcedure = "GetSalesRecordsByClientCode";
+
+            //try
+            //{
+            //    List<SalesRercord> dailyTreatmentList = new List<SalesRercord>();
+
+            //    using (MySqlConnection connection = new MySqlConnection("server=localhost;uid=root;pwd=;database=sapmsDB"))
+            //    {
+            //        await connection.OpenAsync();
+
+            //        using (MySqlCommand command = new MySqlCommand(storedProcedure, connection))
+            //        {
+            //            command.CommandType = CommandType.StoredProcedure;
+
+            //            // 👇 Pass the value of the clientCode textbox
+            //            command.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
+
+            //            using (MySqlDataReader reader = (MySqlDataReader)await command.ExecuteReaderAsync())
+            //            {
+            //                while (await reader.ReadAsync())
+            //                {
+            //                    SalesRercord treatment = new SalesRercord
+            //                    {
+            //                        BusinessCode = reader["code"]?.ToString() ?? string.Empty,
+            //                        CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
+            //                        VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
+            //                        OutputSales = reader["outputSales"]?.ToString() ?? string.Empty,
+            //                        DateOfTransact = reader["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(reader["dateOfTransac"]) : DateTime.MinValue,
+            //                        GrossSales = reader["grossSales"]?.ToString() ?? string.Empty,
+            //                    };
+            //                    dailyTreatmentList.Add(treatment);
+            //                }
+            //            }
+            //        }
+            //    }
+
+            //    viewSalesGrdCtrl.DataSource = dailyTreatmentList;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
         private void refreshbtn_Click(object sender, EventArgs e)
         {
             LoadSalesData();
         }
 
-        private void gridView1_RowCellClick(object sender, RowCellClickEventArgs e)
+        private void gridView1_RowCellClick_1(object sender, RowCellClickEventArgs e)
         {
             if (e.Clicks.Equals(2))
             {
