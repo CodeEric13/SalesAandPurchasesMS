@@ -8,7 +8,7 @@ namespace SAPMS.Classes
 {
     public class SalesRercord
     {
-        //public int SalesID { get; set; }
+        public int SalesID { get; set; }
         public string BusinessCode { get; set; }
         public string CustomerName { get; set; }
         public string GrossSales { get; set; }

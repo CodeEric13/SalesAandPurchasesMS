@@ -28,7 +28,7 @@ namespace SAPMS
         private void updtSalesFRM_Load(object sender, EventArgs e)
         {
             // Initialize the form with the sales record data
-            clientCode.Text = _sales.BusinessCode;
+            salesID.Text = _sales.SalesID.ToString();
             cusName.Text = _sales.CustomerName;
             grossSales.Text = _sales.GrossSales;
             x12OutVat.Text = _sales.VatSales;
@@ -76,9 +76,9 @@ namespace SAPMS
                 hasError = true;
             }
 
-            if (string.IsNullOrWhiteSpace(clientCode.Text))
+            if (string.IsNullOrWhiteSpace(salesID.Text))
             {
-                dxErrorProvider.SetError(clientCode, "Client code is required.");
+                dxErrorProvider.SetError(salesID, "Client code is required.");
                 hasError = true;
             }
 
@@ -107,34 +107,47 @@ namespace SAPMS
 
             string connectionString = "server=localhost;uid=root;pwd=;database=sapmsdb";
             using (var conn = new MySqlConnection(connectionString))
-               
+
             {
-                conn.Open();
-                string query = "UPDATE sales SET customerName = @CustomerName, grossSales = @GrossSales, VatSales = @VatSales, outputSales = @OutputSales, dateOfTransac = @Date WHERE code = @Code";
-
-                using (var cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@CustomerName", cusName.Text);
-                    cmd.Parameters.AddWithValue("@GrossSales", grossSales.Text);
-                    cmd.Parameters.AddWithValue("@VatSales", x12VatSales.Text);
-                    cmd.Parameters.AddWithValue("@OutputSales", x12OutVat.Text);
-                    cmd.Parameters.AddWithValue("@Date", DateTime.Parse(transacDate.Text));
-                    cmd.Parameters.AddWithValue("@Code", clientCode.Text);
+                    conn.Open();
+                    string query = "UPDATE sales SET customerName = @CustomerName, grossSales = @GrossSales, VatSales = @VatSales, outputSales = @OutputSales, dateOfTransac = @Date WHERE id = @id";
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Record updated successfully.");
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerName", cusName.Text);
+                        cmd.Parameters.AddWithValue("@GrossSales", decimal.Parse(grossSales.Text));
+                        cmd.Parameters.AddWithValue("@VatSales", decimal.Parse(x12VatSales.Text));
+                        cmd.Parameters.AddWithValue("@OutputSales", decimal.Parse(x12OutVat.Text));
+                        cmd.Parameters.AddWithValue("@Date", DateTime.Parse(transacDate.Text));
+                        cmd.Parameters.AddWithValue("@id", salesID.Text);
+
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Record updated successfully.");
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("MySQL error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void x12VatSales_TextChanged(object sender, EventArgs e)
+        private void vatSales_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
         }
 
-        private void x12OutVat_TextChanged(object sender, EventArgs e)
+        private void outVat_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
+        }
+
+        private void labelControl8_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

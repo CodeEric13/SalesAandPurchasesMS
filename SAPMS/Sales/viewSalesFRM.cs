@@ -124,7 +124,7 @@ namespace SAPMS
             {
                 var sales = new SalesRercord()
                 {
-                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code")?.ToString() ?? "",
+                    SalesID = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, "id") ?? 0),
                     CustomerName = gridView1.GetRowCellValue(e.RowHandle, "customerName")?.ToString() ?? "",
                     GrossSales = gridView1.GetRowCellValue(e.RowHandle, "grossSales")?.ToString() ?? "",
                     VatSales = gridView1.GetRowCellValue(e.RowHandle, "VatSales")?.ToString() ?? "",

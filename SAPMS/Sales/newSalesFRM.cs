@@ -44,7 +44,7 @@ namespace SAPMS.Sales
                 x12VatSales.Text = "0.00";
             }
 
-            if (decimal.TryParse(outVat.Text, out decimal outSalesValue))
+            if (decimal.TryParse(outVat.Text, out decimal outSalesValue)) // ✅ Fixed line
             {
                 decimal outVatResult = outSalesValue * 0.12m;
                 x12OutVat.Text = outVatResult.ToString("0.00");
@@ -143,12 +143,12 @@ namespace SAPMS.Sales
             }
         }
 
-        private void x12VatSales_TextChanged(object sender, EventArgs e)
+        private void vatSales_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
         }
 
-        private void x12OutVat_TextChanged(object sender, EventArgs e)
+        private void outVat_TextChanged(object sender, EventArgs e)
         {
             Calculate12PercentVAT();
         }

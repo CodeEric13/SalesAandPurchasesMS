@@ -74,6 +74,7 @@
             this.vatSales.Properties.Appearance.Options.UseFont = true;
             this.vatSales.Size = new System.Drawing.Size(133, 26);
             this.vatSales.TabIndex = 2;
+            this.vatSales.TextChanged += new System.EventHandler(this.vatSales_TextChanged);
             // 
             // outVat
             // 
@@ -83,6 +84,7 @@
             this.outVat.Properties.Appearance.Options.UseFont = true;
             this.outVat.Size = new System.Drawing.Size(133, 26);
             this.outVat.TabIndex = 3;
+            this.outVat.TextChanged += new System.EventHandler(this.outVat_TextChanged);
             // 
             // grossSales
             // 
@@ -165,7 +167,6 @@
             this.x12VatSales.Properties.ReadOnly = true;
             this.x12VatSales.Size = new System.Drawing.Size(133, 26);
             this.x12VatSales.TabIndex = 12;
-            this.x12VatSales.TextChanged += new System.EventHandler(this.x12VatSales_TextChanged);
             // 
             // x12OutVat
             // 
@@ -176,7 +177,6 @@
             this.x12OutVat.Properties.ReadOnly = true;
             this.x12OutVat.Size = new System.Drawing.Size(133, 26);
             this.x12OutVat.TabIndex = 13;
-            this.x12OutVat.TextChanged += new System.EventHandler(this.x12OutVat_TextChanged);
             // 
             // labelControl7
             // 

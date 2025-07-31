@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.salesID = new DevExpress.XtraEditors.TextEdit();
             this.updatebtn = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.x12OutVat = new DevExpress.XtraEditors.TextEdit();
@@ -45,7 +45,7 @@
             this.outVat = new DevExpress.XtraEditors.TextEdit();
             this.vatSales = new DevExpress.XtraEditors.TextEdit();
             this.cusName = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties.CalendarTimeProperties)).BeginInit();
@@ -58,21 +58,22 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(312, 12);
+            this.labelControl8.Location = new System.Drawing.Point(328, 12);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(55, 13);
+            this.labelControl8.Size = new System.Drawing.Size(39, 13);
             this.labelControl8.TabIndex = 35;
-            this.labelControl8.Text = "Client Code";
+            this.labelControl8.Text = "Sales ID";
+            this.labelControl8.Click += new System.EventHandler(this.labelControl8_Click);
             // 
-            // clientCode
+            // salesID
             // 
-            this.clientCode.Location = new System.Drawing.Point(373, 4);
-            this.clientCode.Name = "clientCode";
-            this.clientCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientCode.Properties.Appearance.Options.UseFont = true;
-            this.clientCode.Properties.ReadOnly = true;
-            this.clientCode.Size = new System.Drawing.Size(72, 26);
-            this.clientCode.TabIndex = 34;
+            this.salesID.Location = new System.Drawing.Point(373, 4);
+            this.salesID.Name = "salesID";
+            this.salesID.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesID.Properties.Appearance.Options.UseFont = true;
+            this.salesID.Properties.ReadOnly = true;
+            this.salesID.Size = new System.Drawing.Size(72, 26);
+            this.salesID.TabIndex = 34;
             // 
             // updatebtn
             // 
@@ -100,7 +101,6 @@
             this.x12OutVat.Properties.ReadOnly = true;
             this.x12OutVat.Size = new System.Drawing.Size(133, 26);
             this.x12OutVat.TabIndex = 31;
-            this.x12OutVat.TextChanged += new System.EventHandler(this.x12OutVat_TextChanged);
             // 
             // x12VatSales
             // 
@@ -111,7 +111,6 @@
             this.x12VatSales.Properties.ReadOnly = true;
             this.x12VatSales.Size = new System.Drawing.Size(133, 26);
             this.x12VatSales.TabIndex = 30;
-            this.x12VatSales.TextChanged += new System.EventHandler(this.x12VatSales_TextChanged);
             // 
             // labelControl6
             // 
@@ -193,6 +192,7 @@
             this.outVat.Properties.Appearance.Options.UseFont = true;
             this.outVat.Size = new System.Drawing.Size(133, 26);
             this.outVat.TabIndex = 21;
+            this.outVat.TextChanged += new System.EventHandler(this.outVat_TextChanged);
             // 
             // vatSales
             // 
@@ -202,6 +202,7 @@
             this.vatSales.Properties.Appearance.Options.UseFont = true;
             this.vatSales.Size = new System.Drawing.Size(133, 26);
             this.vatSales.TabIndex = 20;
+            this.vatSales.TextChanged += new System.EventHandler(this.vatSales_TextChanged);
             // 
             // cusName
             // 
@@ -218,7 +219,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 168);
             this.Controls.Add(this.labelControl8);
-            this.Controls.Add(this.clientCode);
+            this.Controls.Add(this.salesID);
             this.Controls.Add(this.updatebtn);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.x12OutVat);
@@ -237,7 +238,7 @@
             this.Name = "updtSalesFRM";
             this.Text = "updtSalesFRM";
             this.Load += new System.EventHandler(this.updtSalesFRM_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transacDate.Properties.CalendarTimeProperties)).EndInit();
@@ -254,7 +255,7 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.TextEdit salesID;
         private DevExpress.XtraEditors.SimpleButton updatebtn;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit x12OutVat;
