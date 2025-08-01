@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using SAPMS.Classes;
 using SAPMS.Sales;
 using DevExpress.XtraEditors;
+using SAPMS.Dashboard;
 
 namespace SAPMS
 {
@@ -39,52 +40,44 @@ namespace SAPMS
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-            string storedProcedure = "GetClientRecord";
+            // Clear the content panel
+            contentPanel.Controls.Clear();
 
-            try
-            {
-                string myConnectionString = "server=localhost;uid=root;pwd=;database=sapmsDb";
+            // Create an instance of the medInventoryUC
+            allClientsUC medTreatment = new allClientsUC();
+            medTreatment.Dock = DockStyle.Fill;
 
-                using (MySqlConnection connection = new MySqlConnection(myConnectionString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand cmd = new MySqlCommand(storedProcedure, connection))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                        {
-                            DataTable dataTable = new DataTable();
-                            adapter.Fill(dataTable);
-
-                            if (dataTable.Rows.Count > 0)
-                            {
-                                clientsGrdCtrl.DataSource = dataTable;
-                                //clientsGrdCtrl.ForceInitialize();
-                                gridView1.PopulateColumns();
-                                gridView1.BestFitColumns();
-
-                                // Auto adjust column widths to fit content
-                                gridView1.BestFitColumns();
-                            }
-                            else
-                            {
-                                XtraMessageBox.Show("No data found in the table.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                XtraMessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Add the new user control to the content panel
+            contentPanel.Controls.Add(medTreatment);
         }
 
+        private void allSalesbtn_Click(object sender, EventArgs e)
+        {
+            // Clear the content panel
+            contentPanel.Controls.Clear();
 
+            // Create an instance of the medInventoryUC
+            allSalesUC medTreatment = new allSalesUC();
+            medTreatment.Dock = DockStyle.Fill;
 
+            // Add the new user control to the content panel
+            contentPanel.Controls.Add(medTreatment);
+        }
 
+        private void allClientsbtn_Click(object sender, EventArgs e)
+        {
+            // Clear the content panel
+            contentPanel.Controls.Clear();
+
+            // Create an instance of the medInventoryUC
+            allClientsUC medTreatment = new allClientsUC();
+            medTreatment.Dock = DockStyle.Fill;
+
+            // Add the new user control to the content panel
+            contentPanel.Controls.Add(medTreatment);
+        }
+    }
+}
             //List<ClientRecords> clientList = new List<ClientRecords>();
 
             //string connectionString = "server=localhost;uid=root;pwd=;database=sapmsDB";
@@ -112,46 +105,4 @@ namespace SAPMS
             //    }
             //}
             //clientsGrdCtrl.DataSource = clientList;
-
-
-            private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        {
-
-            if (e.Clicks == 2 && e.RowHandle >= 0)
-            {
-                var client = new ClientRecords()
-                {
-                    BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code").ToString()
-                };
-                var sales = new spDashboardFRM(client);
-                sales.ShowDialog();
-
-
-                //if (e.Clicks == 2 && e.RowHandle >= 0)
-                //{
-                //    object codeObj = gridView1.GetRowCellValue(e.RowHandle, "code");
-                //    string code = (codeObj != null && !Convert.IsDBNull(codeObj)) ? codeObj.ToString() : string.Empty;
-
-                //    var client = new ClientRecords()
-                //    {
-                //        BusinessCode = code
-                //    };
-
-                //    var sales = new newSalesFRM(client);
-                //    sales.ShowDialog();
-                //}
-            }
-        }
-
-        private void fluentDesignFormControl1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fluentDesignFormControl1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
         

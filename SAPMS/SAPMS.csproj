@@ -118,6 +118,18 @@
     <Compile Include="Classes\ClientRecords.cs" />
     <Compile Include="Classes\ClientSession.cs" />
     <Compile Include="Classes\SalesRercord.cs" />
+    <Compile Include="Dashboard\allClientsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\allClientsUC.Designer.cs">
+      <DependentUpon>allClientsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\allSalesUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\allSalesUC.Designer.cs">
+      <DependentUpon>allSalesUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +189,12 @@
     </Compile>
     <EmbeddedResource Include="Dashboard\addClientFRM.resx">
       <DependentUpon>addClientFRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\allClientsUC.resx">
+      <DependentUpon>allClientsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\allSalesUC.resx">
+      <DependentUpon>allSalesUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
