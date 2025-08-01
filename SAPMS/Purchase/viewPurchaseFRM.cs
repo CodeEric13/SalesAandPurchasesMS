@@ -2,6 +2,7 @@
 using Google.Protobuf.WellKnownTypes;
 using MySql.Data.MySqlClient;
 using SAPMS.Classes;
+using SAPMS.Purchase;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,12 +64,34 @@ namespace SAPMS.Sales
         }
         private void viewPurchaseFRM_Load(object sender, EventArgs e)
         {
-            LoadPurchaseData();
+             LoadPurchaseData();
         }
 
         private void refreshbtn_Click(object sender, EventArgs e)
         {
             LoadPurchaseData();
+        }
+
+        private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Clicks.Equals(2))
+            {
+                var purchase = new PurchaseRecord()
+                {
+                    PurchaseID = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, "id") ?? 0),
+                    Tin = Convert.ToInt32(gridView1.GetRowCellValue(e.RowHandle, "TinNo") ?? 0),
+                    SupplierName = gridView1.GetRowCellValue(e.RowHandle, "supplier")?.ToString() ?? "",
+                    GrossPurchase = Convert.ToDecimal(gridView1.GetRowCellValue(e.RowHandle, "grossPurchase") ?? 0),
+                    NetOfVat = Convert.ToDecimal(gridView1.GetRowCellValue(e.RowHandle, "netOfVat") ?? 0),
+                    InputVat = Convert.ToDecimal(gridView1.GetRowCellValue(e.RowHandle, "inputVat") ?? 0),
+                    DateOfTransact = DateTime.TryParse(gridView1.GetRowCellValue(e.RowHandle, "dateOfTransac")?.ToString(), out DateTime result)
+                        ? result
+                        : DateTime.MinValue
+                };
+
+                var updatePurchase = new updtPurchaseFRM(purchase);
+                updatePurchase.ShowDialog();
+            }
         }
     }
 }

@@ -56,6 +56,7 @@
             this.gridView1.GridControl = this.purchaseGrdCtrl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             // 
             // refreshbtn
             // 

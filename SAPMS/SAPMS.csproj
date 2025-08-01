@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\PurchaseRecord.cs" />
     <Compile Include="Dashboard\addClientFRM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,12 @@
     </Compile>
     <Compile Include="Purchase\newPurchaseFRM.Designer.cs">
       <DependentUpon>newPurchaseFRM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase\updtPurchaseFRM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase\updtPurchaseFRM.Designer.cs">
+      <DependentUpon>updtPurchaseFRM.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\newSalesFRM.cs">
       <SubType>Form</SubType>
@@ -189,6 +196,9 @@
     </Compile>
     <EmbeddedResource Include="Purchase\newPurchaseFRM.resx">
       <DependentUpon>newPurchaseFRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase\updtPurchaseFRM.resx">
+      <DependentUpon>updtPurchaseFRM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\newSalesFRM.resx">
       <DependentUpon>newSalesFRM.cs</DependentUpon>

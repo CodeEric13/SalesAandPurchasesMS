@@ -36,29 +36,6 @@ namespace SAPMS
             transacDate.EditValue = _sales.DateOfTransact;
         }
 
-        private void Calculate12PercentVAT()
-        {
-            if (decimal.TryParse(vatSales.Text, out decimal vatSalesValue))
-            {
-                decimal vatResult = vatSalesValue * 0.12m;
-                x12VatSales.Text = vatResult.ToString("0.00");
-            }
-            else
-            {
-                x12VatSales.Text = "0.00";
-            }
-
-            if (decimal.TryParse(outVat.Text, out decimal outSalesValue))
-            {
-                decimal outVatResult = outSalesValue * 0.12m;
-                x12OutVat.Text = outVatResult.ToString("0.00");
-            }
-            else
-            {
-                x12OutVat.Text = "0.00";
-            }
-        }
-
         private void updatebtn_Click(object sender, EventArgs e)
         {
             dxErrorProvider.ClearErrors();
@@ -82,17 +59,17 @@ namespace SAPMS
                 hasError = true;
             }
 
-            if (string.IsNullOrWhiteSpace(vatSales.Text))
-            {
-                dxErrorProvider.SetError(vatSales, "VAT Sales is required.");
-                hasError = true;
-            }
+            //if (string.IsNullOrWhiteSpace(vatSales.Text))
+            //{
+            //    dxErrorProvider.SetError(vatSales, "VAT Sales is required.");
+            //    hasError = true;
+            //}
 
-            if (string.IsNullOrWhiteSpace(outVat.Text))
-            {
-                dxErrorProvider.SetError(outVat, "Output VAT is required.");
-                hasError = true;
-            }
+            //if (string.IsNullOrWhiteSpace(outVat.Text))
+            //{
+            //    dxErrorProvider.SetError(outVat, "Output VAT is required.");
+            //    hasError = true;
+            //}
 
             if (string.IsNullOrWhiteSpace(grossSales.Text))
             {
@@ -136,17 +113,30 @@ namespace SAPMS
 
         private void vatSales_TextChanged(object sender, EventArgs e)
         {
-            Calculate12PercentVAT();
+            if (decimal.TryParse(vatSales.Text, out decimal value))
+            {
+                x12VatSales.Text = (value * 0.12m).ToString("0.00");
+            }
+            else
+            {
+                x12VatSales.Text = "0.00";
+            }
         }
 
         private void outVat_TextChanged(object sender, EventArgs e)
         {
-            Calculate12PercentVAT();
+            if (decimal.TryParse(outVat.Text, out decimal value))
+            {
+                x12OutVat.Text = (value * 0.12m).ToString("0.00");
+            }
+            else
+            {
+                x12OutVat.Text = "0.00";
+            }
         }
 
         private void labelControl8_Click(object sender, EventArgs e)
         {
-
 
         }
     }
