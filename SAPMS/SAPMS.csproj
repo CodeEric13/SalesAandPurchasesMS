@@ -169,10 +169,10 @@
     <Compile Include="Sales\viewSalesFRM.Designer.cs">
       <DependentUpon>viewSalesFRM.cs</DependentUpon>
     </Compile>
-    <Compile Include="updtSalesFRM.cs">
+    <Compile Include="Sales\updtSalesFRM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="updtSalesFRM.Designer.cs">
+    <Compile Include="Sales\updtSalesFRM.Designer.cs">
       <DependentUpon>updtSalesFRM.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Dashboard\addClientFRM.resx">
@@ -212,7 +212,7 @@
     <EmbeddedResource Include="Sales\viewSalesFRM.resx">
       <DependentUpon>viewSalesFRM.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="updtSalesFRM.resx">
+    <EmbeddedResource Include="Sales\updtSalesFRM.resx">
       <DependentUpon>updtSalesFRM.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
