@@ -35,13 +35,13 @@
             this.clientRecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
+            this.allClientsbtn = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.addClient = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.allSalesbtn = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.allPurchasebtn = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.mvvmContext1 = new DevExpress.Utils.MVVM.MVVMContext(this.components);
-            this.allClientsbtn = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contentPanel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientRecordsBindingSource)).BeginInit();
@@ -68,10 +68,6 @@
             this.contentPanel.Size = new System.Drawing.Size(580, 442);
             this.contentPanel.TabIndex = 0;
             // 
-            // clientRecordsBindingSource
-            // 
-            this.clientRecordsBindingSource.DataSource = typeof(SAPMS.Classes.ClientRecords);
-            // 
             // fluentFormDefaultManager1
             // 
             this.fluentFormDefaultManager1.Form = this;
@@ -89,6 +85,13 @@
             this.accordionControl1.Size = new System.Drawing.Size(210, 442);
             this.accordionControl1.TabIndex = 1;
             this.accordionControl1.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
+            // 
+            // allClientsbtn
+            // 
+            this.allClientsbtn.Name = "allClientsbtn";
+            this.allClientsbtn.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.allClientsbtn.Text = "Clients";
+            this.allClientsbtn.Click += new System.EventHandler(this.allClientsbtn_Click);
             // 
             // addClient
             // 
@@ -124,6 +127,7 @@
             this.allPurchasebtn.Name = "allPurchasebtn";
             this.allPurchasebtn.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.allPurchasebtn.Text = "All Purchases";
+            this.allPurchasebtn.Click += new System.EventHandler(this.allPurchasebtn_Click);
             // 
             // fluentDesignFormControl1
             // 
@@ -138,13 +142,6 @@
             // mvvmContext1
             // 
             this.mvvmContext1.ContainerControl = this;
-            // 
-            // allClientsbtn
-            // 
-            this.allClientsbtn.Name = "allClientsbtn";
-            this.allClientsbtn.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.allClientsbtn.Text = "Clients";
-            this.allClientsbtn.Click += new System.EventHandler(this.allClientsbtn_Click);
             // 
             // dashboard
             // 

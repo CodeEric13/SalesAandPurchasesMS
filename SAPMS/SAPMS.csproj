@@ -124,6 +124,12 @@
     <Compile Include="Dashboard\allClientsUC.Designer.cs">
       <DependentUpon>allClientsUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\allPurchaseUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\allPurchaseUC.Designer.cs">
+      <DependentUpon>allPurchaseUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\allSalesUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +199,9 @@
     <EmbeddedResource Include="Dashboard\allClientsUC.resx">
       <DependentUpon>allClientsUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\allPurchaseUC.resx">
+      <DependentUpon>allPurchaseUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\allSalesUC.resx">
       <DependentUpon>allSalesUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +246,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SAPMS.Classes.ClientRecords.datasource" />
     <None Include="Properties\DataSources\SAPMS.Classes.ClientRecords1.datasource" />
+    <None Include="Properties\DataSources\SAPMS.Classes.PurchaseRecord.datasource" />
     <None Include="Properties\DataSources\SAPMS.Classes.SalesRercord.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

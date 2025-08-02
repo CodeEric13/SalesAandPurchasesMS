@@ -57,11 +57,11 @@ namespace SAPMS
             contentPanel.Controls.Clear();
 
             // Create an instance of the medInventoryUC
-            allSalesUC medTreatment = new allSalesUC();
-            medTreatment.Dock = DockStyle.Fill;
+            allSalesUC salesUC = new allSalesUC();
+            salesUC.Dock = DockStyle.Fill;
 
             // Add the new user control to the content panel
-            contentPanel.Controls.Add(medTreatment);
+            contentPanel.Controls.Add(salesUC);
         }
 
         private void allClientsbtn_Click(object sender, EventArgs e)
@@ -70,11 +70,24 @@ namespace SAPMS
             contentPanel.Controls.Clear();
 
             // Create an instance of the medInventoryUC
-            allClientsUC medTreatment = new allClientsUC();
-            medTreatment.Dock = DockStyle.Fill;
+            allClientsUC clientsUC = new allClientsUC();
+            clientsUC.Dock = DockStyle.Fill;
 
             // Add the new user control to the content panel
-            contentPanel.Controls.Add(medTreatment);
+            contentPanel.Controls.Add(clientsUC);
+        }
+
+        private void allPurchasebtn_Click(object sender, EventArgs e)
+        {
+            // Clear the content panel
+            contentPanel.Controls.Clear();
+
+            // Create an instance of the medInventoryUC
+            allPurchaseUC purchaseUC = new allPurchaseUC();
+            purchaseUC.Dock = DockStyle.Fill;
+
+            // Add the new user control to the content panel
+            contentPanel.Controls.Add(purchaseUC);
         }
     }
 }

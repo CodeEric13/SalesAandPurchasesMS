@@ -68,8 +68,7 @@ namespace SAPMS
             //LoadSalesData();
         }
 
-        private async void LoadSalesData()
-        {
+       //private async void LoadSalesData()
             //string storedProcedure = "GetSalesRecordsByClientCode";
 
             //try
@@ -112,10 +111,10 @@ namespace SAPMS
             //{
             //    MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-        }
+       // }
         private void refreshbtn_Click(object sender, EventArgs e)
         {
-            LoadSalesData();
+            //LoadSalesData();
         }
 
         private void gridView1_RowCellClick_1(object sender, RowCellClickEventArgs e)

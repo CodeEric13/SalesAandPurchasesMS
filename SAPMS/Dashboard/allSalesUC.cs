@@ -42,6 +42,7 @@ namespace SAPMS.Dashboard
                             {
                                 SalesRercord treatment = new SalesRercord
                                 {
+                                    SalesID = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : 0,
                                     BusinessCode = reader["code"]?.ToString() ?? string.Empty,
                                     CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
                                     VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
