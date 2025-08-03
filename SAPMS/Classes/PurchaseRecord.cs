@@ -8,7 +8,7 @@ namespace SAPMS.Classes
 {
     public class PurchaseRecord
     {
-        public string Code { get; set; }
+        public string BusinesCode { get; set; }
         public int PurchaseID { get; set; }
         public int Tin { get; set; }
         public string SupplierName { get; set; }

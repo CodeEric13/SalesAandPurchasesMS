@@ -43,7 +43,7 @@ namespace SAPMS.Dashboard
                                 PurchaseRecord purchase = new PurchaseRecord
                                 {
                                     PurchaseID = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : 0,
-                                    Code = reader["code"]?.ToString() ?? string.Empty,
+                                    BusinesCode = reader["code"]?.ToString() ?? string.Empty,
                                     Tin = reader["TinNo"] != DBNull.Value ? Convert.ToInt32(reader["TinNo"]) : 0,
                                     SupplierName = reader["supplier"]?.ToString() ?? string.Empty,
                                     GrossPurchase = reader["grossPurchase"] != DBNull.Value ? Convert.ToDecimal(reader["grossPurchase"]) : 0m,
@@ -64,6 +64,7 @@ namespace SAPMS.Dashboard
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private async void FilterPurchaseData_TextChanged(object sender, EventArgs e)
         {
             string connectionString = "server=localhost;uid=root;pwd=;database=sapmsdb";
@@ -170,6 +171,13 @@ namespace SAPMS.Dashboard
         private void fltrSupplier_TextChanged(object sender, EventArgs e)
         {
             FilterPurchaseData_TextChanged(sender, e);
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            fltrCode.Text = string.Empty;
+            fltrSupplier.Text = string.Empty;
+            fltrDate.Text = string.Empty;
         }
     }
 }

@@ -63,5 +63,75 @@ namespace SAPMS.Dashboard
                 MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private async void FilterSalesData_TextChanged(object sender, EventArgs e)
+        {
+            string connectionString = "server=localhost;uid=root;pwd=;database=sapmsdb";
+
+            //string codeFilter = fltrCode.Text.Trim();
+            //string dateFilter = fltrDate.Text.Trim();
+            //string supplierFilter = fltrCusName.Text.Trim();  // ✅ New filter
+
+            string query = @"
+                SELECT id, code, customerName, grossSales, VatSales, outputSales, dateOfTransac
+                FROM sales
+                WHERE (@code IS NULL OR code LIKE CONCAT('%', @code, '%'))
+                  AND (@date IS NULL OR DATE(dateOfTransac) = @date)
+                  AND (@customerName IS NULL OR customerName LIKE CONCAT('%', @customerName, '%'));";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@date", DateTime.TryParse(fltrDate.Text, out DateTime date) ? date : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@customerName", string.IsNullOrWhiteSpace(fltrCusName.Text) ? (object)DBNull.Value : fltrCusName.Text.Trim());
+                        //cmd.Parameters.AddWithValue("@tinNo", int.TryParse(fltrTinNo.Text, out int tin) ? tin : (object)DBNull.Value);
+                        //cmd.Parameters.AddWithValue("@netOfVat", decimal.TryParse(fltrNetOfVat.Text, out decimal netVat) ? netVat : (object)DBNull.Value);
+                        //cmd.Parameters.AddWithValue("@inputVat", decimal.TryParse(fltrInputVat.Text, out decimal inputVat) ? inputVat : (object)DBNull.Value);
+                        //cmd.Parameters.AddWithValue("@grossPurchase", decimal.TryParse(fltrGrossPurchase.Text, out decimal gross) ? gross : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("@code", string.IsNullOrWhiteSpace(fltrCode.Text) ? (object)DBNull.Value : fltrCode.Text.Trim());
+
+                        DataTable dt = new DataTable();
+                        using (MySqlDataReader reader = (MySqlDataReader)await cmd.ExecuteReaderAsync())
+                        {
+                            dt.Load(reader);
+                        }
+
+                        allSalesGrdCtrl.DataSource = dt;
+                        allSalesGrdCtrl.MainView.PopulateColumns();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error filtering purchase data:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void fltrCode_TextChanged(object sender, EventArgs e)
+        {
+            FilterSalesData_TextChanged(sender, e);
+        }
+
+        private void fltrCusName_TextChanged(object sender, EventArgs e)
+        {
+            FilterSalesData_TextChanged(sender, e);
+        }
+
+        private void fltrDate_TextChanged(object sender, EventArgs e)
+        {
+            FilterSalesData_TextChanged(sender, e);
+        }
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            //create a clear method to reset the filters
+            fltrCode.Text = string.Empty;
+            fltrCusName.Text = string.Empty;
+            fltrDate.Text = string.Empty;
+        }
     }
 }
