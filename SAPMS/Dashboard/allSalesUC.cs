@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using SAPMS.Classes;
+using DevExpress.XtraGrid.Views.Grid;
+using SAPMS.Reports;
 
 namespace SAPMS.Dashboard
 {
@@ -132,6 +134,67 @@ namespace SAPMS.Dashboard
             fltrCode.Text = string.Empty;
             fltrCusName.Text = string.Empty;
             fltrDate.Text = string.Empty;
+        }
+
+        private void prvSalesbtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the GridView associated with the GridControl
+                GridView gridView = allSalesGrdCtrl.MainView as GridView;
+
+                if (gridView == null || gridView.RowCount == 0)
+                {
+                    MessageBox.Show("No data available for the report.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Extract the displayed data from the GridView
+                List<SalesRercord> reportData = new List<SalesRercord>();
+
+                for (int i = 0; i < gridView.RowCount; i++)
+                {
+                    var row = gridView.GetRow(i) as DataRowView; // Handles DataTable as data source
+                    if (row != null)
+                    {
+                        SalesRercord salesRep = new SalesRercord
+                        {
+                            SalesID = row["id"] != DBNull.Value ? Convert.ToInt32(row["id"]) : 0,
+                            BusinessCode = row["code"]?.ToString() ?? string.Empty,
+                            CustomerName = row["customerName"]?.ToString() ?? string.Empty,
+                            GrossSales = row["grossSales"]?.ToString() ?? string.Empty,
+                            VatSales = row["VatSales"]?.ToString() ?? string.Empty,
+                            OutputSales = row["outputSales"]?.ToString() ?? string.Empty,
+                            DateOfTransact = row["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(row["dateOfTransac"]) : DateTime.MinValue
+                        };
+                        reportData.Add(salesRep);
+                    }
+                }
+
+                // If no filtered data is found in the grid, check if the data source is a List<DailyTreatment>
+                if (reportData.Count == 0 && allSalesGrdCtrl.DataSource is List<SalesRercord> unfilteredData)
+                {
+                    reportData = unfilteredData;
+                }
+
+                if (reportData.Count == 0)
+                {
+                    MessageBox.Show("No data available for the report.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Create and bind the report
+                RPTSales report = new RPTSales();
+                report.DataSource = reportData;
+
+                // Show the preview
+                DevExpress.XtraReports.UI.ReportPrintTool printTool = new DevExpress.XtraReports.UI.ReportPrintTool(report);
+                printTool.ShowPreview();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error generating the report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

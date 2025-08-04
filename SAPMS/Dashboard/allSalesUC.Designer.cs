@@ -139,6 +139,7 @@
             this.prvSalesbtn.Size = new System.Drawing.Size(89, 33);
             this.prvSalesbtn.TabIndex = 1;
             this.prvSalesbtn.Text = "Preview";
+            this.prvSalesbtn.Click += new System.EventHandler(this.prvSalesbtn_Click);
             // 
             // labelControl3
             // 
