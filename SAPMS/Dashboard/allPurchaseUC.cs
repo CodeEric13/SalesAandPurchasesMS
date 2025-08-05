@@ -1,6 +1,9 @@
 ﻿using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraRichEdit.Import.Html;
 using MySql.Data.MySqlClient;
 using SAPMS.Classes;
+using SAPMS.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +46,7 @@ namespace SAPMS.Dashboard
                                 PurchaseRecord purchase = new PurchaseRecord
                                 {
                                     PurchaseID = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : 0,
-                                    BusinesCode = reader["code"]?.ToString() ?? string.Empty,
+                                    BranchCode = reader["code"]?.ToString() ?? string.Empty,
                                     Tin = reader["TinNo"] != DBNull.Value ? Convert.ToInt32(reader["TinNo"]) : 0,
                                     SupplierName = reader["supplier"]?.ToString() ?? string.Empty,
                                     GrossPurchase = reader["grossPurchase"] != DBNull.Value ? Convert.ToDecimal(reader["grossPurchase"]) : 0m,
@@ -178,6 +181,68 @@ namespace SAPMS.Dashboard
             fltrCode.Text = string.Empty;
             fltrSupplier.Text = string.Empty;
             fltrDate.Text = string.Empty;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the GridView associated with the GridControl
+                GridView gridView = allPurchaseGrdCtrl.MainView as GridView;
+
+                if (gridView == null || gridView.RowCount == 0)
+                {
+                    MessageBox.Show("No data available for the report.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Extract the displayed data from the GridView
+                List<PurchaseRecord> reportData = new List<PurchaseRecord>();
+
+                for (int i = 0; i < gridView.RowCount; i++)
+                {
+                    var row = gridView.GetRow(i) as DataRowView; // Handles DataTable as data source
+                    if (row != null)
+                    {
+                        PurchaseRecord  PurchaseRep = new PurchaseRecord
+                        {
+                            PurchaseID = row["id"] != DBNull.Value ? Convert.ToInt32(row["id"]) : 0,
+                            BranchCode = row["code"]?.ToString() ?? string.Empty,
+                            Tin = row["TinNo"] != DBNull.Value ? Convert.ToInt32(row["TinNo"]) : 0,
+                            SupplierName = row["supplier"]?.ToString() ?? string.Empty,
+                            GrossPurchase = row["grossPurchase"] != DBNull.Value ? Convert.ToDecimal(row["grossPurchase"]) : 0m,
+                            NetOfVat = row["netOfVat"] != DBNull.Value ? Convert.ToDecimal(row["netOfVat"]) : 0m,
+                            InputVat = row["inputVat"] != DBNull.Value ? Convert.ToDecimal(row["inputVat"]) : 0m,
+                            DateOfTransact = row["dateOfTransac"] != DBNull.Value ? Convert.ToDateTime(row["dateOfTransac"]) : DateTime.MinValue
+                        };
+                        reportData.Add(PurchaseRep);
+                    }
+                }
+
+                // If no filtered data is found in the grid, check if the data source is a List<DailyTreatment>
+                if (reportData.Count == 0 && allPurchaseGrdCtrl.DataSource is List<PurchaseRecord> unfilteredData)
+                {
+                    reportData = unfilteredData;
+                }
+
+                if (reportData.Count == 0)
+                {
+                    MessageBox.Show("No data available for the report.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Create and bind the report
+                RPTPurchase report = new RPTPurchase();
+                report.DataSource = reportData;
+
+                // Show the preview
+                DevExpress.XtraReports.UI.ReportPrintTool printTool = new DevExpress.XtraReports.UI.ReportPrintTool(report);
+                printTool.ShowPreview();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error generating the report: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

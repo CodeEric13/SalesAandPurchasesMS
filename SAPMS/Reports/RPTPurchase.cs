@@ -4,11 +4,11 @@ using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 
-namespace SAPMS
+namespace SAPMS.Reports
 {
-    public partial class RPTSales : DevExpress.XtraReports.UI.XtraReport
+    public partial class RPTPurchase : DevExpress.XtraReports.UI.XtraReport
     {
-        public RPTSales()
+        public RPTPurchase()
         {
             InitializeComponent();
         }

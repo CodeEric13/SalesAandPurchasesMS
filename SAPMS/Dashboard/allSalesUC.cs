@@ -45,7 +45,7 @@ namespace SAPMS.Dashboard
                                 SalesRercord treatment = new SalesRercord
                                 {
                                     SalesID = reader["id"] != DBNull.Value ? Convert.ToInt32(reader["id"]) : 0,
-                                    BusinessCode = reader["code"]?.ToString() ?? string.Empty,
+                                    BranchCode = reader["code"]?.ToString() ?? string.Empty,
                                     CustomerName = reader["customerName"]?.ToString() ?? string.Empty,
                                     VatSales = reader["VatSales"]?.ToString() ?? string.Empty,
                                     OutputSales = reader["outputSales"]?.ToString() ?? string.Empty,
@@ -160,7 +160,7 @@ namespace SAPMS.Dashboard
                         SalesRercord salesRep = new SalesRercord
                         {
                             SalesID = row["id"] != DBNull.Value ? Convert.ToInt32(row["id"]) : 0,
-                            BusinessCode = row["code"]?.ToString() ?? string.Empty,
+                            BranchCode = row["code"]?.ToString() ?? string.Empty,
                             CustomerName = row["customerName"]?.ToString() ?? string.Empty,
                             GrossSales = row["grossSales"]?.ToString() ?? string.Empty,
                             VatSales = row["VatSales"]?.ToString() ?? string.Empty,

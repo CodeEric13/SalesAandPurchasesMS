@@ -176,6 +176,12 @@
     <Compile Include="Purchase\updtPurchaseFRM.Designer.cs">
       <DependentUpon>updtPurchaseFRM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\RPTPurchase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RPTPurchase.Designer.cs">
+      <DependentUpon>RPTPurchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\RPTSales.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Purchase\updtPurchaseFRM.resx">
       <DependentUpon>updtPurchaseFRM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RPTPurchase.resx">
+      <DependentUpon>RPTPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\RPTSales.resx">
       <DependentUpon>RPTSales.cs</DependentUpon>
