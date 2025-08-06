@@ -46,6 +46,8 @@
             this.clearbtn = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.tinNo = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.cusName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vatSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.outVat.Properties)).BeginInit();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cusName
@@ -205,7 +208,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(313, 17);
+            this.labelControl8.Location = new System.Drawing.Point(311, 44);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(55, 13);
             this.labelControl8.TabIndex = 18;
@@ -213,7 +216,7 @@
             // 
             // clientCode
             // 
-            this.clientCode.Location = new System.Drawing.Point(374, 9);
+            this.clientCode.Location = new System.Drawing.Point(372, 36);
             this.clientCode.Name = "clientCode";
             this.clientCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clientCode.Properties.Appearance.Options.UseFont = true;
@@ -221,11 +224,31 @@
             this.clientCode.Size = new System.Drawing.Size(72, 26);
             this.clientCode.TabIndex = 17;
             // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(311, 12);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(17, 13);
+            this.labelControl9.TabIndex = 20;
+            this.labelControl9.Text = "TIN";
+            // 
+            // tinNo
+            // 
+            this.tinNo.Location = new System.Drawing.Point(334, 4);
+            this.tinNo.Name = "tinNo";
+            this.tinNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tinNo.Properties.Appearance.Options.UseFont = true;
+            this.tinNo.Properties.ReadOnly = true;
+            this.tinNo.Size = new System.Drawing.Size(110, 26);
+            this.tinNo.TabIndex = 19;
+            // 
             // newSalesFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 174);
+            this.Controls.Add(this.labelControl9);
+            this.Controls.Add(this.tinNo);
             this.Controls.Add(this.labelControl8);
             this.Controls.Add(this.clientCode);
             this.Controls.Add(this.clearbtn);
@@ -257,6 +280,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.x12VatSales.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.x12OutVat.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,5 +305,7 @@
         private DevExpress.XtraEditors.SimpleButton clearbtn;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit tinNo;
     }
 }

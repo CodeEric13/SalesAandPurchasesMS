@@ -42,11 +42,13 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.tinNo = new DevExpress.XtraEditors.TextEdit();
+            this.branchCode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -142,18 +144,31 @@
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
             this.tabbedView1});
             // 
-            // clientCode
+            // tinNo
             // 
-            this.clientCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.clientCode.Enabled = false;
-            this.clientCode.Location = new System.Drawing.Point(354, 26);
-            this.clientCode.MenuManager = this.ribbon;
-            this.clientCode.Name = "clientCode";
-            this.clientCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clientCode.Properties.Appearance.Options.UseFont = true;
-            this.clientCode.Properties.ReadOnly = true;
-            this.clientCode.Size = new System.Drawing.Size(100, 30);
-            this.clientCode.TabIndex = 3;
+            this.tinNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tinNo.Enabled = false;
+            this.tinNo.Location = new System.Drawing.Point(704, 66);
+            this.tinNo.MenuManager = this.ribbon;
+            this.tinNo.Name = "tinNo";
+            this.tinNo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tinNo.Properties.Appearance.Options.UseFont = true;
+            this.tinNo.Properties.ReadOnly = true;
+            this.tinNo.Size = new System.Drawing.Size(100, 30);
+            this.tinNo.TabIndex = 3;
+            // 
+            // branchCode
+            // 
+            this.branchCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.branchCode.Enabled = false;
+            this.branchCode.Location = new System.Drawing.Point(704, 102);
+            this.branchCode.MenuManager = this.ribbon;
+            this.branchCode.Name = "branchCode";
+            this.branchCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.branchCode.Properties.Appearance.Options.UseFont = true;
+            this.branchCode.Properties.ReadOnly = true;
+            this.branchCode.Size = new System.Drawing.Size(100, 30);
+            this.branchCode.TabIndex = 6;
             // 
             // spDashboardFRM
             // 
@@ -161,7 +176,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 478);
-            this.Controls.Add(this.clientCode);
+            this.Controls.Add(this.branchCode);
+            this.Controls.Add(this.tinNo);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
             this.IsMdiContainer = true;
@@ -175,7 +191,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,6 +212,7 @@
         private DevExpress.XtraBars.BarButtonItem newPurchse;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
-        private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.TextEdit tinNo;
+        private DevExpress.XtraEditors.TextEdit branchCode;
     }
 }

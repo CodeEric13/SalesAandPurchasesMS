@@ -67,17 +67,42 @@ namespace SAPMS.Dashboard
             }
         }
 
+        //private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        //{
+        //    if (e.Clicks == 2 && e.RowHandle >= 0)
+        //    {
+        //        var client = new ClientRecords()
+        //        {
+        //            TinNo = gridView1.GetRowCellValue(e.RowHandle, "tinNo").ToString()
+        //        };
+        //        var sales = new spDashboardFRM(client);
+        //        sales.ShowDialog();
+        //    }
+        //}
+
+        private void allClientsGrdCtrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void gridView1_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
             if (e.Clicks == 2 && e.RowHandle >= 0)
             {
                 var client = new ClientRecords()
                 {
+                    TinNo = gridView1.GetRowCellValue(e.RowHandle, "tinNo").ToString(),
                     BusinessCode = gridView1.GetRowCellValue(e.RowHandle, "code").ToString()
+
                 };
                 var sales = new spDashboardFRM(client);
                 sales.ShowDialog();
             }
+        }
+
+        private void allClientsGrdCtrl_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

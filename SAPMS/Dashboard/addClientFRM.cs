@@ -40,12 +40,17 @@ namespace SAPMS
             }
             if (string.IsNullOrWhiteSpace(bCode.Text))
             {
-                dxErrorProvider.SetError(bCode, "Business Address is required.");
+                dxErrorProvider.SetError(bCode, "Branch Code is required.");
                 hasError = true;
             }
             if (string.IsNullOrWhiteSpace(busAddress.Text))
             {
                 dxErrorProvider.SetError(busAddress, "Tax Type is required.");
+                hasError = true;
+            }
+            if (string.IsNullOrWhiteSpace(tinNo.Text))
+            {
+                dxErrorProvider.SetError(tinNo, "TIN Number is required.");
                 hasError = true;
             }
             if (hasError)
@@ -66,12 +71,12 @@ namespace SAPMS
                     string duplicateCheckQuery = @"
                     SELECT COUNT(*) 
                     FROM clientInformation 
-                    WHERE code = @code";
+                    WHERE tinNO = @tinNO;";
 
                     using (MySqlCommand duplicateCmd = new MySqlCommand(duplicateCheckQuery, connection))
                     {
                       
-                        duplicateCmd.Parameters.AddWithValue("@code", bCode.Text.ToUpper());
+                        duplicateCmd.Parameters.AddWithValue("@tinNO", tinNo.Text.ToUpper());
 
                         int duplicateCount = Convert.ToInt32(await duplicateCmd.ExecuteScalarAsync());
                         if (duplicateCount > 0)
@@ -84,9 +89,9 @@ namespace SAPMS
                     // Insert new record in patient_record
                     string insertPatientInfoQuery = @"
                     INSERT INTO clientInformation
-                    (clientName, busAddress,taxType, code, dateAdded, busName)
+                    (clientName, busAddress,taxType, code, dateAdded, busName, tinNo)
                     VALUES 
-                    (@clientName, @busAddress, @taxType, @code, @dateAdded, @busName)";
+                    (@clientName, @busAddress, @taxType, @code, @dateAdded, @busName, @tinNo)";
 
                     using (MySqlCommand insertCmd = new MySqlCommand(insertPatientInfoQuery, connection))
                     {
@@ -97,6 +102,7 @@ namespace SAPMS
                         insertCmd.Parameters.AddWithValue("@code", bCode.Text.ToUpper());
                         insertCmd.Parameters.AddWithValue("@dateAdded", admittedDateText);
                         insertCmd.Parameters.AddWithValue("@busName", busName.Text.ToUpper());
+                        insertCmd.Parameters.AddWithValue("@tinNo", tinNo.Text.ToUpper());
 
                         await insertCmd.ExecuteNonQueryAsync();
                     }

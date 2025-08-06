@@ -24,9 +24,10 @@ namespace SAPMS.Sales
 
         private void spDashboardFRM_Load(object sender, EventArgs e)
         {
-            clientCode.Text = _clients.BusinessCode;
-            clientCode.Text = /* value from selected record */
-            ClientSession.SelectedClientCode = clientCode.Text; // Save it for use in child forms
+            branchCode.Text = _clients.BusinessCode;
+            tinNo.Text = _clients.TinNo;
+            ClientSession.SelectedTIN = tinNo.Text; // Save it for use in child forms
+            ClientSession.SelectedClientCode = branchCode.Text; // Save it for use in child forms
         }
         private void OpenFormAsTab(Form form)
         {
@@ -59,14 +60,14 @@ namespace SAPMS.Sales
         private void viewSales_ItemClick(object sender, ItemClickEventArgs e)
         {
             var viewForm = new viewSalesFRM();
-            viewForm.ClientCodeText = clientCode.Text;
+            viewForm.ClientCode = branchCode.Text;
             OpenFormAsTab(viewForm);
         }
 
         private void viewPurchase_ItemClick(object sender, ItemClickEventArgs e)
         {
             var viewForm = new viewPurchaseFRM();
-            viewForm.ClientCodeText = clientCode.Text;
+            viewForm.ClientCode = branchCode.Text;
             OpenFormAsTab(viewForm);
         }
 

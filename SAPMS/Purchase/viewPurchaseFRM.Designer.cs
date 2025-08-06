@@ -31,11 +31,11 @@
             this.purchaseGrdCtrl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.refreshbtn = new DevExpress.XtraEditors.SimpleButton();
-            this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.branchCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseGrdCtrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // purchaseGrdCtrl
@@ -68,22 +68,22 @@
             this.refreshbtn.Text = "Refresh";
             this.refreshbtn.Click += new System.EventHandler(this.refreshbtn_Click);
             // 
-            // clientCode
+            // branchCode
             // 
-            this.clientCode.Enabled = false;
-            this.clientCode.Location = new System.Drawing.Point(73, 11);
-            this.clientCode.Name = "clientCode";
-            this.clientCode.Properties.ReadOnly = true;
-            this.clientCode.Size = new System.Drawing.Size(98, 20);
-            this.clientCode.TabIndex = 2;
+            this.branchCode.Enabled = false;
+            this.branchCode.Location = new System.Drawing.Point(79, 10);
+            this.branchCode.Name = "branchCode";
+            this.branchCode.Properties.ReadOnly = true;
+            this.branchCode.Size = new System.Drawing.Size(98, 20);
+            this.branchCode.TabIndex = 2;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 16);
+            this.labelControl1.Location = new System.Drawing.Point(12, 13);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.Size = new System.Drawing.Size(61, 13);
             this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Client Code";
+            this.labelControl1.Text = "Branch Code";
             // 
             // viewPurchaseFRM
             // 
@@ -91,7 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 268);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.clientCode);
+            this.Controls.Add(this.branchCode);
             this.Controls.Add(this.refreshbtn);
             this.Controls.Add(this.purchaseGrdCtrl);
             this.Name = "viewPurchaseFRM";
@@ -99,7 +99,7 @@
             this.Load += new System.EventHandler(this.viewPurchaseFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.purchaseGrdCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,7 +110,7 @@
         private DevExpress.XtraGrid.GridControl purchaseGrdCtrl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraEditors.SimpleButton refreshbtn;
-        private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.TextEdit branchCode;
         private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.salesRercordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.clientCode = new DevExpress.XtraEditors.TextEdit();
+            this.branchCode = new DevExpress.XtraEditors.TextEdit();
             this.refreshbtn = new DevExpress.XtraEditors.SimpleButton();
             this.viewSalesGrdCtrl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.salesRercordBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
@@ -49,18 +49,18 @@
             // 
             this.labelControl1.Location = new System.Drawing.Point(10, 11);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(55, 13);
+            this.labelControl1.Size = new System.Drawing.Size(61, 13);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Client Code";
+            this.labelControl1.Text = "Branch Code";
             // 
-            // clientCode
+            // branchCode
             // 
-            this.clientCode.Enabled = false;
-            this.clientCode.Location = new System.Drawing.Point(71, 6);
-            this.clientCode.Name = "clientCode";
-            this.clientCode.Properties.ReadOnly = true;
-            this.clientCode.Size = new System.Drawing.Size(98, 20);
-            this.clientCode.TabIndex = 5;
+            this.branchCode.Enabled = false;
+            this.branchCode.Location = new System.Drawing.Point(77, 7);
+            this.branchCode.Name = "branchCode";
+            this.branchCode.Properties.ReadOnly = true;
+            this.branchCode.Size = new System.Drawing.Size(98, 20);
+            this.branchCode.TabIndex = 5;
             // 
             // refreshbtn
             // 
@@ -99,13 +99,13 @@
             this.ClientSize = new System.Drawing.Size(546, 268);
             this.Controls.Add(this.viewSalesGrdCtrl);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.clientCode);
+            this.Controls.Add(this.branchCode);
             this.Controls.Add(this.refreshbtn);
             this.Name = "viewSalesFRM";
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.viewSalesFRM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salesRercordBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clientCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.branchCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.viewSalesGrdCtrl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
@@ -115,7 +115,7 @@
 
         #endregion
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TextEdit clientCode;
+        private DevExpress.XtraEditors.TextEdit branchCode;
         private DevExpress.XtraEditors.SimpleButton refreshbtn;
         private System.Windows.Forms.BindingSource salesRercordBindingSource;
         private DevExpress.XtraGrid.GridControl viewSalesGrdCtrl;

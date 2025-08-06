@@ -17,10 +17,10 @@ namespace SAPMS.Sales
 {
     public partial class viewPurchaseFRM : DevExpress.XtraEditors.XtraForm
     {
-        public string ClientCodeText
+        public string ClientCode
         {
-            get => clientCode.Text;
-            set => clientCode.Text = value;
+            get => branchCode.Text;
+            set => branchCode.Text = value;
         }
 
         public viewPurchaseFRM()
@@ -30,7 +30,7 @@ namespace SAPMS.Sales
         public viewPurchaseFRM(string clientCodeText)
         {
             InitializeComponent();
-            clientCode.Text = clientCodeText;
+            branchCode.Text = clientCodeText;
         }
 
         private void LoadPurchaseData()
@@ -47,7 +47,7 @@ namespace SAPMS.Sales
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         // Pass clientCode from the TextBox to the stored procedure
-                        cmd.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
+                        cmd.Parameters.AddWithValue("@p_clientCode", branchCode.Text.Trim());
  
                         MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                         DataTable dt = new DataTable();

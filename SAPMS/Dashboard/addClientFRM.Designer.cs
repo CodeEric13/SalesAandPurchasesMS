@@ -42,12 +42,15 @@
             this.busAddress = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.bCode = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.tinNo = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.clientName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.busName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.taxTypecmb.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateAdded.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.busAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // clientName
@@ -59,7 +62,7 @@
             // 
             // busName
             // 
-            this.busName.Location = new System.Drawing.Point(104, 64);
+            this.busName.Location = new System.Drawing.Point(104, 90);
             this.busName.Name = "busName";
             this.busName.Size = new System.Drawing.Size(122, 20);
             this.busName.TabIndex = 1;
@@ -74,7 +77,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(15, 67);
+            this.labelControl2.Location = new System.Drawing.Point(15, 93);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(71, 13);
             this.labelControl2.TabIndex = 4;
@@ -82,7 +85,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(15, 119);
+            this.labelControl3.Location = new System.Drawing.Point(15, 145);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(45, 13);
             this.labelControl3.TabIndex = 5;
@@ -90,7 +93,7 @@
             // 
             // savebtn
             // 
-            this.savebtn.Location = new System.Drawing.Point(15, 168);
+            this.savebtn.Location = new System.Drawing.Point(15, 194);
             this.savebtn.Name = "savebtn";
             this.savebtn.Size = new System.Drawing.Size(211, 34);
             this.savebtn.TabIndex = 6;
@@ -99,7 +102,7 @@
             // 
             // taxTypecmb
             // 
-            this.taxTypecmb.Location = new System.Drawing.Point(104, 116);
+            this.taxTypecmb.Location = new System.Drawing.Point(104, 142);
             this.taxTypecmb.Name = "taxTypecmb";
             this.taxTypecmb.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -111,7 +114,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(15, 208);
+            this.simpleButton2.Location = new System.Drawing.Point(15, 234);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(211, 44);
             this.simpleButton2.TabIndex = 8;
@@ -119,7 +122,7 @@
             // 
             // dateAdded
             // 
-            this.dateAdded.Location = new System.Drawing.Point(104, 142);
+            this.dateAdded.Location = new System.Drawing.Point(104, 168);
             this.dateAdded.Name = "dateAdded";
             this.dateAdded.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -132,7 +135,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(15, 145);
+            this.labelControl4.Location = new System.Drawing.Point(15, 171);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(23, 13);
             this.labelControl4.TabIndex = 9;
@@ -140,7 +143,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(15, 93);
+            this.labelControl5.Location = new System.Drawing.Point(15, 119);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(83, 13);
             this.labelControl5.TabIndex = 12;
@@ -148,14 +151,14 @@
             // 
             // busAddress
             // 
-            this.busAddress.Location = new System.Drawing.Point(104, 90);
+            this.busAddress.Location = new System.Drawing.Point(104, 116);
             this.busAddress.Name = "busAddress";
             this.busAddress.Size = new System.Drawing.Size(122, 20);
             this.busAddress.TabIndex = 11;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(15, 41);
+            this.labelControl7.Location = new System.Drawing.Point(15, 67);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(61, 13);
             this.labelControl7.TabIndex = 16;
@@ -163,16 +166,33 @@
             // 
             // bCode
             // 
-            this.bCode.Location = new System.Drawing.Point(104, 38);
+            this.bCode.Location = new System.Drawing.Point(104, 64);
             this.bCode.Name = "bCode";
             this.bCode.Size = new System.Drawing.Size(122, 20);
             this.bCode.TabIndex = 15;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(15, 41);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(17, 13);
+            this.labelControl6.TabIndex = 18;
+            this.labelControl6.Text = "TIN";
+            // 
+            // tinNo
+            // 
+            this.tinNo.Location = new System.Drawing.Point(104, 38);
+            this.tinNo.Name = "tinNo";
+            this.tinNo.Size = new System.Drawing.Size(122, 20);
+            this.tinNo.TabIndex = 17;
             // 
             // addClientFRM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 264);
+            this.ClientSize = new System.Drawing.Size(238, 288);
+            this.Controls.Add(this.labelControl6);
+            this.Controls.Add(this.tinNo);
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.bCode);
             this.Controls.Add(this.labelControl5);
@@ -196,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateAdded.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.busAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tinNo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +238,7 @@
         private DevExpress.XtraEditors.TextEdit busAddress;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.TextEdit bCode;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit tinNo;
     }
 }

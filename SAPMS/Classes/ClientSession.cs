@@ -9,5 +9,6 @@ namespace SAPMS.Classes
     public class ClientSession
     {
         public static string SelectedClientCode { get; set; }
+        public static string SelectedTIN { get; set; }
     }
 }

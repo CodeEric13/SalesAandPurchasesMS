@@ -120,9 +120,9 @@ namespace SAPMS.Sales
 
         private void newPurchaseFRM_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(ClientSession.SelectedClientCode))
+            if (!string.IsNullOrEmpty(ClientSession.SelectedTIN))
             {
-                clientCode.Text = ClientSession.SelectedClientCode;
+                clientCode.Text = ClientSession.SelectedTIN;
             }
         }
     }

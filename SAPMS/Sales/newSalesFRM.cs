@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Utils.Drawing.Animation;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
@@ -137,9 +138,10 @@ namespace SAPMS.Sales
 
         private void newSalesFRM_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(ClientSession.SelectedClientCode))
+            if (!string.IsNullOrEmpty(ClientSession.SelectedTIN))
             {
                 clientCode.Text = ClientSession.SelectedClientCode;
+                tinNo.Text = ClientSession.SelectedTIN;
             }
         }
 

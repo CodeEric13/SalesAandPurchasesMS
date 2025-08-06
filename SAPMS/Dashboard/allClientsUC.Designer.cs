@@ -32,6 +32,7 @@
             this.allClientsGrdCtrl = new DevExpress.XtraGrid.GridControl();
             this.clientRecordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colTinNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBusinessAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBusinessCode = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,6 +55,7 @@
             this.allClientsGrdCtrl.TabIndex = 0;
             this.allClientsGrdCtrl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.allClientsGrdCtrl.Click += new System.EventHandler(this.allClientsGrdCtrl_Click_1);
             // 
             // clientRecordsBindingSource
             // 
@@ -62,6 +64,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTinNo,
             this.colName,
             this.colBusinessAddress,
             this.colBusinessCode,
@@ -73,47 +76,54 @@
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridView1_RowCellClick);
             // 
+            // colTinNo
+            // 
+            this.colTinNo.FieldName = "TinNo";
+            this.colTinNo.Name = "colTinNo";
+            this.colTinNo.Visible = true;
+            this.colTinNo.VisibleIndex = 0;
+            // 
             // colName
             // 
             this.colName.FieldName = "Name";
             this.colName.Name = "colName";
             this.colName.Visible = true;
-            this.colName.VisibleIndex = 0;
+            this.colName.VisibleIndex = 1;
             // 
             // colBusinessAddress
             // 
             this.colBusinessAddress.FieldName = "BusinessAddress";
             this.colBusinessAddress.Name = "colBusinessAddress";
             this.colBusinessAddress.Visible = true;
-            this.colBusinessAddress.VisibleIndex = 1;
+            this.colBusinessAddress.VisibleIndex = 2;
             // 
             // colBusinessCode
             // 
             this.colBusinessCode.FieldName = "BusinessCode";
             this.colBusinessCode.Name = "colBusinessCode";
             this.colBusinessCode.Visible = true;
-            this.colBusinessCode.VisibleIndex = 2;
+            this.colBusinessCode.VisibleIndex = 3;
             // 
             // colBusinessName
             // 
             this.colBusinessName.FieldName = "BusinessName";
             this.colBusinessName.Name = "colBusinessName";
             this.colBusinessName.Visible = true;
-            this.colBusinessName.VisibleIndex = 3;
+            this.colBusinessName.VisibleIndex = 4;
             // 
             // colTaxType
             // 
             this.colTaxType.FieldName = "TaxType";
             this.colTaxType.Name = "colTaxType";
             this.colTaxType.Visible = true;
-            this.colTaxType.VisibleIndex = 4;
+            this.colTaxType.VisibleIndex = 5;
             // 
             // colDateAdded
             // 
             this.colDateAdded.FieldName = "DateAdded";
             this.colDateAdded.Name = "colDateAdded";
             this.colDateAdded.Visible = true;
-            this.colDateAdded.VisibleIndex = 5;
+            this.colDateAdded.VisibleIndex = 6;
             // 
             // allClientsUC
             // 
@@ -131,10 +141,10 @@
         }
 
         #endregion
-
         private DevExpress.XtraGrid.GridControl allClientsGrdCtrl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource clientRecordsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colTinNo;
         private DevExpress.XtraGrid.Columns.GridColumn colName;
         private DevExpress.XtraGrid.Columns.GridColumn colBusinessAddress;
         private DevExpress.XtraGrid.Columns.GridColumn colBusinessCode;

@@ -17,10 +17,10 @@ namespace SAPMS
 {
     public partial class viewSalesFRM : DevExpress.XtraEditors.XtraForm
     {
-        public string ClientCodeText
+        public string ClientCode
         {
-            get => clientCode.Text;
-            set => clientCode.Text = value;
+            get => branchCode.Text;
+            set => branchCode.Text = value;
         }
         public viewSalesFRM()
         {
@@ -30,7 +30,7 @@ namespace SAPMS
         public viewSalesFRM(string clientCodeText)
         {
             InitializeComponent();
-            clientCode.Text = clientCodeText;
+            branchCode.Text = clientCodeText;
         }
 
         private async void viewSalesFRM_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace SAPMS
                     using (MySqlCommand command = new MySqlCommand(storedProcedure, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@p_clientCode", clientCode.Text.Trim());
+                        command.Parameters.AddWithValue("@p_clientCode", branchCode.Text.Trim());
 
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
